@@ -1,0 +1,44 @@
+{
+  "name": "manch1915/woo-supplier-sync",
+  "description": "Keeps a WooCommerce catalog in sync with supplier feeds: YML, CSV, XLSX, JSON API and site scraping.",
+  "type": "wordpress-plugin",
+  "license": "GPL-2.0-or-later",
+  "require": {
+    "php": ">=8.2"
+  },
+  "require-dev": {
+    "dealerdirect/phpcodesniffer-composer-installer": "^1.0",
+    "phpcompatibility/phpcompatibility-wp": "^2.1",
+    "phpstan/phpstan": "^2.1",
+    "php-stubs/woocommerce-stubs": "*",
+    "php-stubs/wp-cli-stubs": "*",
+    "szepeviktor/phpstan-wordpress": "^2.0",
+    "phpunit/phpunit": "^9.6",
+    "wp-coding-standards/wpcs": "^3.1",
+    "wp-phpunit/wp-phpunit": "*",
+    "yoast/phpunit-polyfills": "^4.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "SupplierSync\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "SupplierSync\\Tests\\": "tests/"
+    }
+  },
+  "scripts": {
+    "lint": "phpcs",
+    "lint:fix": "phpcbf",
+    "analyse": "phpstan analyse --memory-limit=1G",
+    "test": "phpunit --testsuite unit",
+    "test:integration": "phpunit --testsuite integration"
+  },
+  "config": {
+    "sort-packages": true,
+    "allow-plugins": {
+      "dealerdirect/phpcodesniffer-composer-installer": true
+    }
+  }
+}

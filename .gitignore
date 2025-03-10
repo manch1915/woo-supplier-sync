@@ -1,0 +1,10 @@
+/plugin/vendor/
+/plugin/node_modules/
+/plugin/assets/build/
+/plugin/.phpunit.result.cache
+/plugin/.phpunit.cache/
+/plugin/tests/.wp-tests/
+.env
+*.log
+.DS_Store
+Thumbs.db

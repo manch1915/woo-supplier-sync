@@ -1,0 +1,24 @@
+{
+  "meta": { "page": 1, "total": 2 },
+  "data": {
+    "items": [
+      {
+        "id": 501,
+        "title": "Volta USB-C charger 65W",
+        "gtin": "5901234123457",
+        "pricing": { "net": 21.4, "rrp": 39 },
+        "stock": { "qty": 25 },
+        "images": ["https://feeds.test/img/charger-1.jpg", "https://feeds.test/img/charger-2.jpg"],
+        "specs": { "Power": "65 W", "Ports": "2 × USB-C" }
+      },
+      {
+        "id": 502,
+        "title": "Volta braided cable 2 m",
+        "pricing": { "net": 4.2 },
+        "stock": { "qty": 0 },
+        "images": [],
+        "specs": {}
+      }
+    ]
+  }
+}

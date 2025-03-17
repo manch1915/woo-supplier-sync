@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<export>
+  <product code="KT-100">
+    <title>Kettle Classic 1.7 l</title>
+    <ean>4006381333948</ean>
+    <price currency="EUR">32.50</price>
+    <stock>7</stock>
+    <images><image>https://feeds.test/img/kettle-1.jpg</image><image>https://feeds.test/img/kettle-2.jpg</image></images>
+    <specs><spec name="Volume">1.7 l</spec><spec name="Power">2200 W</spec></specs>
+  </product>
+  <product code="KT-200">
+    <title>Kettle Glass 1.5 l</title>
+    <price currency="EUR">41.00</price>
+    <stock>0</stock>
+  </product>
+</export>

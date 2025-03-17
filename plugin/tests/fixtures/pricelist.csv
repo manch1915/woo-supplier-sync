@@ -1,0 +1,5 @@
+Артикул;EAN;Наименование;Категория;Цена;Остаток;Цвет;Размер;Фото;Модель
+PC-JKT-RD-M;4006381333931;"Ridge shell jacket; red, M";Outdoor/Jackets;"1.249,50";4;Red;M;https://feeds.test/img/ridge-red.jpg|https://feeds.test/img/ridge-red-2.jpg;RIDGE
+PC-JKT-RD-L;;Ridge shell jacket, red, L;Outdoor/Jackets;1249,50;0;Red;L;https://feeds.test/img/ridge-red.jpg;RIDGE
+
+PC-BTL-750;;Trail bottle 750 ml;Outdoor/Bottles;abc;10;;;;

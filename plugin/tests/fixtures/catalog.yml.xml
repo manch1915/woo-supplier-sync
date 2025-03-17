@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<yml_catalog date="2026-10-19T08:00:00+03:00">
+  <shop>
+    <name>Nordline</name>
+    <currencies>
+      <currency id="RUR" rate="1"/>
+    </currencies>
+    <categories>
+      <category id="1">Audio</category>
+      <category id="12" parentId="1">Headphones</category>
+    </categories>
+    <offers>
+      <offer id="NL-1001" available="true" group_id="77">
+        <name>Aurora ANC headphones, black</name>
+        <vendor>Aurora</vendor>
+        <vendorCode>AUR-ANC-BLK</vendorCode>
+        <barcode>4600000000017</barcode>
+        <price>8 490</price>
+        <oldprice>9990</oldprice>
+        <currencyId>RUR</currencyId>
+        <categoryId>12</categoryId>
+        <picture>https://feeds.test/img/aurora-black-1.jpg</picture>
+        <picture>https://feeds.test/img/aurora-black-2.jpg</picture>
+        <description><![CDATA[<p>Closed-back headphones with active noise cancelling.</p>]]></description>
+        <param name="Color">Black</param>
+        <param name="Battery life" unit="h">38</param>
+        <count>12</count>
+      </offer>
+      <offer id="NL-1002" available="false">
+        <typePrefix>Portable speaker</typePrefix>
+        <vendor>Pulse</vendor>
+        <model>Mini 2</model>
+        <price>2990</price>
+        <categoryId>1</categoryId>
+      </offer>
+      <offer id="NL-1003">
+        <name>Broken offer without price</name>
+      </offer>
+    </offers>
+  </shop>
+</yml_catalog>

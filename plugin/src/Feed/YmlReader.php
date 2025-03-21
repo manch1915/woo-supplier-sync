@@ -198,7 +198,7 @@ final class YmlReader implements FeedReader {
 		libxml_use_internal_errors( $previous );
 
 		if ( ! $result && false !== $error && LIBXML_ERR_WARNING < $error->level ) {
-			throw new FeedException( sprintf( 'Malformed XML at line %d: %s', (int) $error->line, trim( $error->message ) ) ); // phpcs:ignore WordPress.Security.EscapeOutput.ExceptionNotEscaped
+			throw new FeedException( sprintf( 'Malformed XML at line %d: %s', (int) $error->line, trim( $error->message ) ) );
 		}
 		return $result;
 	}

@@ -85,7 +85,7 @@ final class CssSelector {
 				};
 				$i += strlen( $m[0] );
 			} else {
-				throw new \InvalidArgumentException( sprintf( 'Unsupported selector syntax near "%s".', substr( $selector, $i ) ) ); // phpcs:ignore WordPress.Security.EscapeOutput.ExceptionNotEscaped
+				throw new \InvalidArgumentException( sprintf( 'Unsupported selector syntax near "%s".', substr( $selector, $i ) ) );
 			}
 		}
 

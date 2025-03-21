@@ -42,7 +42,7 @@ final class ExchangeRates {
 			return $amount;
 		}
 		if ( ! isset( $this->rates[ $code ] ) ) {
-			throw new PricingException( sprintf( 'No exchange rate for %s.', $code ) ); // phpcs:ignore WordPress.Security.EscapeOutput.ExceptionNotEscaped
+			throw new PricingException( sprintf( 'No exchange rate for %s.', $code ) );
 		}
 		return $amount * $this->rates[ $code ];
 	}

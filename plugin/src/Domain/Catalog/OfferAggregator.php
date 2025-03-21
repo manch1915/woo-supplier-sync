@@ -60,6 +60,7 @@ final class OfferAggregator {
 		}
 
 		[ $quantity, $status ] = $this->stock( $offers );
+		$content               = $this->content( $offers );
 
 		$best = $this->pick_best( $candidates );
 		if ( null === $best ) {
@@ -71,6 +72,7 @@ final class OfferAggregator {
 				stock_status: $status,
 				sources: $sources,
 				error: implode( ' ', array_unique( $errors ) ),
+				content: $content,
 			);
 		}
 
@@ -81,7 +83,36 @@ final class OfferAggregator {
 			quantity: $quantity,
 			stock_status: $status,
 			sources: $sources,
+			content: $content,
 		);
+	}
+
+	/**
+	 * The supplier that was connected first owns the card. Others only fill gaps:
+	 * missing attributes, photos or description.
+	 *
+	 * @param non-empty-list<Offer> $offers Offers for one unit.
+	 */
+	private function content( array $offers ): Offer {
+		usort( $offers, static fn ( Offer $a, Offer $b ): int => [ $a->supplier_id, $a->external_id ] <=> [ $b->supplier_id, $b->external_id ] );
+		$owner = $offers[0];
+		if ( 1 === count( $offers ) ) {
+			return $owner;
+		}
+
+		$data = $owner->to_array();
+		foreach ( array_slice( $offers, 1 ) as $other ) {
+			$data['attributes'] += $other->attributes;
+			if ( [] === $data['images'] ) {
+				$data['images'] = $other->images;
+			}
+			if ( '' === trim( (string) $data['description'] ) ) {
+				$data['description'] = $other->description;
+			}
+			$data['sku'] ??= $other->sku;
+			$data['ean'] ??= $other->ean;
+		}
+		return Offer::from_array( $data );
 	}
 
 	/**

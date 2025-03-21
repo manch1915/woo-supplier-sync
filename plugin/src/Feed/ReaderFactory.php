@@ -48,7 +48,7 @@ final class ReaderFactory {
 					]
 				)
 			),
-			default => throw new FeedException( sprintf( 'Unknown feed type "%s".', $type ) ), // phpcs:ignore WordPress.Security.EscapeOutput.ExceptionNotEscaped
+			default => throw new FeedException( sprintf( 'Unknown feed type "%s".', $type ) ),
 		};
 	}
 }

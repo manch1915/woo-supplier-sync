@@ -26,7 +26,7 @@ final class DraftBuilder {
 		$priced = array_values( array_filter( $units, static fn ( AggregatedUnit $u ): bool => null !== $u->price ) );
 		if ( [] === $priced ) {
 			$errors = array_filter( array_map( static fn ( AggregatedUnit $u ): string => (string) $u->error, $units ) );
-			throw new DraftException( implode( ' ', array_unique( $errors ) ) ); // phpcs:ignore WordPress.Security.EscapeOutput.ExceptionNotEscaped
+			throw new DraftException( implode( ' ', array_unique( $errors ) ) );
 		}
 
 		usort( $priced, static fn ( AggregatedUnit $a, AggregatedUnit $b ): int => strcmp( (string) $a->sku(), (string) $b->sku() ) );
@@ -42,7 +42,7 @@ final class DraftBuilder {
 	 * @param list<int>      $category_ids Store categories.
 	 */
 	private function build_simple( string $group_key, AggregatedUnit $unit, array $category_ids ): ProductDraft {
-		$offer = $unit->primary;
+		$offer = $unit->content();
 		$price = $unit->price;
 		assert( null !== $price );
 
@@ -89,7 +89,7 @@ final class DraftBuilder {
 	private function build_variable( string $group_key, array $units, array $category_ids ): ProductDraft {
 		$values_by_name = [];
 		foreach ( $units as $unit ) {
-			foreach ( $this->with_brand( $unit->primary->attributes, $unit->primary->vendor ) as $name => $value ) {
+			foreach ( $this->with_brand( $unit->content()->attributes, $unit->content()->vendor ) as $name => $value ) {
 				$values_by_name[ $name ][ $unit->unit_key ] = $value;
 			}
 		}
@@ -114,11 +114,11 @@ final class DraftBuilder {
 			$variation_names = [ 'Variant' ];
 			$attributes[]    = [
 				'name'      => 'Variant',
-				'values'    => array_map( static fn ( AggregatedUnit $u ): string => $u->primary->name, $units ),
+				'values'    => array_map( static fn ( AggregatedUnit $u ): string => $u->content()->name, $units ),
 				'variation' => true,
 			];
 			foreach ( $units as $unit ) {
-				$values_by_name['Variant'][ $unit->unit_key ] = $unit->primary->name;
+				$values_by_name['Variant'][ $unit->unit_key ] = $unit->content()->name;
 			}
 		}
 
@@ -141,25 +141,25 @@ final class DraftBuilder {
 				sale_price: $price->sale_price,
 				quantity: $unit->quantity,
 				stock_status: $unit->stock_status,
-				image: $unit->primary->images[0] ?? null,
-				ean: $unit->primary->ean,
+				image: $unit->content()->images[0] ?? null,
+				ean: $unit->content()->ean,
 			);
-			array_push( $images, ...$unit->primary->images );
+			array_push( $images, ...$unit->content()->images );
 		}
 
 		$stock_status            = $this->parent_stock_status( $units );
 		[ $status, $visibility ] = $this->publication( $stock_status );
 		$description             = '';
 		foreach ( $units as $unit ) {
-			if ( strlen( $unit->primary->description ) > strlen( $description ) ) {
-				$description = $unit->primary->description;
+			if ( strlen( $unit->content()->description ) > strlen( $description ) ) {
+				$description = $unit->content()->description;
 			}
 		}
 
 		return new ProductDraft(
 			group_key: $group_key,
 			type: ProductDraft::VARIABLE,
-			name: $this->common_name( array_map( static fn ( AggregatedUnit $u ): string => $u->primary->name, $units ) ),
+			name: $this->common_name( array_map( static fn ( AggregatedUnit $u ): string => $u->content()->name, $units ) ),
 			description: $description,
 			sku: null,
 			category_ids: $category_ids,
@@ -256,6 +256,6 @@ final class DraftBuilder {
 	}
 
 	private function fallback_sku( AggregatedUnit $unit ): string {
-		return 'S' . $unit->primary->supplier_id . '-' . $unit->primary->external_id;
+		return 'S' . $unit->content()->supplier_id . '-' . $unit->content()->external_id;
 	}
 }

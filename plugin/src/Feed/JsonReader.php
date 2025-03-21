@@ -41,7 +41,7 @@ final class JsonReader implements FeedReader, TabularSource {
 
 		$items = $this->dig( $data, $this->items_path );
 		if ( ! is_array( $items ) || ! array_is_list( $items ) ) {
-			throw new FeedException( sprintf( 'No list of products at "%s".', '' !== $this->items_path ? $this->items_path : '(root)' ) ); // phpcs:ignore WordPress.Security.EscapeOutput.ExceptionNotEscaped
+			throw new FeedException( sprintf( 'No list of products at "%s".', '' !== $this->items_path ? $this->items_path : '(root)' ) );
 		}
 
 		foreach ( $items as $position => $item ) {

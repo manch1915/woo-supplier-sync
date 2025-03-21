@@ -45,7 +45,7 @@ final class Number {
 	}
 
 	/**
-	 * Quantities like "12", "12 шт", ">10" or "много".
+	 * Quantities like "12", "12 шт", ">10", "In stock: 4 pcs" or "Out of stock".
 	 *
 	 * @param string|null $raw Raw value.
 	 */
@@ -53,10 +53,11 @@ final class Number {
 		if ( null === $raw || '' === trim( $raw ) ) {
 			return null;
 		}
-		if ( preg_match( '/-?\d+/', $raw, $m ) ) {
-			return max( 0, (int) $m[0] );
+		if ( preg_match( '/-?\d[\d\s]*/u', $raw, $m ) ) {
+			return max( 0, (int) preg_replace( '/\s+/u', '', $m[0] ) );
 		}
-		return null;
+		// "Out of stock", "нет в наличии": known to be zero rather than unknown.
+		return self::flag( $raw ) ? null : 0;
 	}
 
 	/**
@@ -70,7 +71,7 @@ final class Number {
 			return $fallback;
 		}
 		$value = mb_strtolower( trim( $raw ) );
-		if ( in_array( $value, [ 'false', '0', 'no', 'нет', '-', 'out of stock', 'нет в наличии' ], true ) ) {
+		if ( in_array( $value, [ 'false', '0', 'no', 'нет', '-', 'out of stock', 'sold out', 'нет в наличии', 'отсутствует' ], true ) ) {
 			return false;
 		}
 		return true;

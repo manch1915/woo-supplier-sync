@@ -11,6 +11,7 @@
 	<exclude-pattern>*/node_modules/*</exclude-pattern>
 	<exclude-pattern>*/tests/.wp-tests/*</exclude-pattern>
 	<exclude-pattern>*/tests/fixtures/*</exclude-pattern>
+	<exclude-pattern>*/tests/stubs/*</exclude-pattern>
 
 	<arg name="extensions" value="php"/>
 	<arg name="colors"/>
@@ -27,7 +28,10 @@
 		<exclude name="Universal.Arrays.DisallowShortArraySyntax"/>
 		<exclude name="Generic.Arrays.DisallowShortArraySyntax"/>
 	</rule>
-	<rule ref="WordPress-Extra"/>
+	<rule ref="WordPress-Extra">
+		<!-- Exception messages go to the run log and the REST API as data, never echoed into HTML. -->
+		<exclude name="WordPress.Security.EscapeOutput.ExceptionNotEscaped"/>
+	</rule>
 
 	<rule ref="WordPress.WP.I18n">
 		<properties>

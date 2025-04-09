@@ -1,0 +1,89 @@
+[
+  {
+    "name": "Nordline Distribution",
+    "type": "yml",
+    "schedule": "every_6_hours",
+    "config": {
+      "source": { "url": "http://feeds/nordline/catalog.yml" },
+      "currency": "RUB",
+      "unmapped_categories": "create",
+      "unmapped_attributes": "keep",
+      "attributes": {},
+      "categories": {},
+      "max_removal_percent": 30
+    }
+  },
+  {
+    "name": "Pinecrest Outfitters",
+    "type": "csv",
+    "schedule": "daily",
+    "config": {
+      "source": { "url": "http://feeds/pinecrest/pricelist.csv" },
+      "currency": "EUR",
+      "mapping": {
+        "delimiter": "auto",
+        "encoding": "UTF-8",
+        "decimal": ",",
+        "columns": {
+          "sku": "SKU",
+          "ean": "EAN",
+          "name": "Product name",
+          "category": "Category",
+          "price": "Price EUR",
+          "old_price": "RRP EUR",
+          "quantity": "Stock",
+          "images": "Images",
+          "description": "Description",
+          "group_id": "Model"
+        },
+        "attribute_columns": ["Colour", "Size", "Material", "Weight"]
+      },
+      "attributes": { "Colour": "Color" },
+      "unmapped_categories": "create",
+      "category_root": "Outdoor",
+      "categories": {},
+      "max_removal_percent": 30
+    }
+  },
+  {
+    "name": "Volta Gadgets (website)",
+    "type": "site",
+    "schedule": "daily",
+    "config": {
+      "source": { "url": "http://feeds/volta/catalog/" },
+      "currency": "USD",
+      "scraper": {
+        "start_urls": ["http://feeds/volta/catalog/"],
+        "max_pages": 20,
+        "max_products": 500,
+        "delay_ms": 200,
+        "selectors": {
+          "product_links": ".card__link",
+          "next_page": "a[rel=next]",
+          "name": "h1.product__title",
+          "sku": ".product@data-sku",
+          "ean": "[itemprop=gtin13]",
+          "price": ".price__now",
+          "old_price": ".price__was",
+          "quantity": ".stock",
+          "category": ".breadcrumbs > a + a, .breadcrumbs > span",
+          "images": ".gallery img@src",
+          "description": ".description",
+          "attribute_rows": "table.specs tr",
+          "attribute_name": "th",
+          "attribute_value": "td"
+        }
+      },
+      "attributes": {},
+      "unmapped_categories": "create",
+      "categories": {
+        "Power > Chargers": "Power & charging > Chargers",
+        "Power > Power banks": "Power & charging > Power banks",
+        "Power > Cables": "Power & charging > Cables",
+        "Power > Wireless": "Power & charging > Wireless chargers",
+        "Power > Adapters": "Power & charging > Adapters"
+      },
+      "max_removal_percent": 30
+    }
+  }
+]

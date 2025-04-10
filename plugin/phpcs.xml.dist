@@ -41,6 +41,18 @@
 		</properties>
 	</rule>
 
+	<rule ref="WordPress.WP.Capabilities">
+		<properties>
+			<property name="custom_capabilities" type="array">
+				<element value="supplier_sync_view"/>
+				<element value="supplier_sync_run"/>
+				<element value="supplier_sync_manage"/>
+				<element value="edit_products"/>
+				<element value="manage_woocommerce"/>
+			</property>
+		</properties>
+	</rule>
+
 	<rule ref="WordPress.NamingConventions.PrefixAllGlobals">
 		<properties>
 			<property name="prefixes" type="array">

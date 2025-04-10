@@ -14,7 +14,8 @@ use SupplierSync\Feed\FeedException;
 
 final class FeedDownloader {
 
-	private const MAX_BYTES = 536870912;
+	private const MAX_BYTES     = 536870912;
+	private const MAX_REDIRECTS = 5;
 
 	private const EXTENSIONS = [
 		'yml'  => 'xml',
@@ -49,22 +50,37 @@ final class FeedDownloader {
 			throw new FeedException( __( 'The feed URL is empty or not allowed.', 'woo-supplier-sync' ) );
 		}
 
-		$response = wp_safe_remote_get(
-			$url,
-			[
-				'timeout'             => 120,
-				'stream'              => true,
-				'filename'            => $path,
-				'limit_response_size' => self::MAX_BYTES,
-				'user-agent'          => 'SupplierSync/' . SUPPLIER_SYNC_VERSION . '; ' . home_url( '/' ),
-				'headers'             => $this->headers( $source ),
-			]
-		);
+		$headers  = $this->headers( $source );
+		$origin   = $this->origin( $url );
+		$response = null;
 
-		if ( is_wp_error( $response ) ) {
+		// Redirects are followed by hand: credential headers must not travel to another host.
+		for ( $hop = 0; $hop <= self::MAX_REDIRECTS; $hop++ ) {
+			$response = wp_safe_remote_get(
+				$url,
+				[
+					'timeout'             => 120,
+					'stream'              => true,
+					'filename'            => $path,
+					'redirection'         => 0,
+					'limit_response_size' => self::MAX_BYTES,
+					'user-agent'          => 'SupplierSync/' . SUPPLIER_SYNC_VERSION . '; ' . home_url( '/' ),
+					'headers'             => $this->origin( $url ) === $origin ? $headers : [ 'Accept-Encoding' => 'identity' ],
+				]
+			);
+
+			$code     = is_wp_error( $response ) ? 0 : (int) wp_remote_retrieve_response_code( $response );
+			$location = is_wp_error( $response ) ? '' : (string) wp_remote_retrieve_header( $response, 'location' );
+			if ( $code < 300 || $code >= 400 || '' === $location ) {
+				break;
+			}
+			$url = \WP_Http::make_absolute_url( $location, $url );
+		}
+
+		if ( null === $response || is_wp_error( $response ) ) {
 			$this->storage->delete( $path );
 			/* translators: %s: error message from the HTTP client. */
-			throw new FeedException( sprintf( __( 'Download failed: %s', 'woo-supplier-sync' ), $response->get_error_message() ) );
+			throw new FeedException( sprintf( __( 'Download failed: %s', 'woo-supplier-sync' ), null === $response ? 'no response' : $response->get_error_message() ) );
 		}
 
 		$code = (int) wp_remote_retrieve_response_code( $response );
@@ -79,6 +95,11 @@ final class FeedDownloader {
 		}
 
 		return $path;
+	}
+
+	private function origin( string $url ): string {
+		$parts = wp_parse_url( $url );
+		return is_array( $parts ) ? strtolower( ( $parts['scheme'] ?? '' ) . '://' . ( $parts['host'] ?? '' ) . ':' . ( $parts['port'] ?? '' ) ) : '';
 	}
 
 	/**

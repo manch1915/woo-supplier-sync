@@ -19,6 +19,8 @@ use SupplierSync\Feed\Scraper\PageParser;
 
 final class SiteCrawler {
 
+	private const MAX_ROBOTS_RULES = 500;
+
 	/**
 	 * @param Supplier             $supplier Profile with scraper settings.
 	 * @param array<string, mixed> $state    Crawl state from the previous slice, empty on start.
@@ -158,7 +160,13 @@ final class SiteCrawler {
 			return [];
 		}
 		$robots   = ( $parts['scheme'] ?? 'https' ) . '://' . $parts['host'] . ( isset( $parts['port'] ) ? ':' . $parts['port'] : '' ) . '/robots.txt';
-		$response = wp_safe_remote_get( $robots, [ 'timeout' => 10 ] );
+		$response = wp_safe_remote_get(
+			$robots,
+			[
+				'timeout'             => 10,
+				'limit_response_size' => 512 * KB_IN_BYTES,
+			]
+		);
 		if ( is_wp_error( $response ) || 200 !== (int) wp_remote_retrieve_response_code( $response ) ) {
 			return [];
 		}
@@ -172,6 +180,9 @@ final class SiteCrawler {
 				$applies = '*' === trim( $m[1] );
 			} elseif ( $applies && preg_match( '/^disallow:\s*(.*)$/i', $line, $m ) ) {
 				$rules[] = trim( $m[1] );
+			}
+			if ( count( $rules ) >= self::MAX_ROBOTS_RULES ) {
+				break;
 			}
 		}
 		return array_values( array_filter( $rules ) );

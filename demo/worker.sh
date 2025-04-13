@@ -7,5 +7,5 @@ cd /var/www/html
 while true; do
 	wp action-scheduler run --batch-size=25 --quiet >/dev/null 2>&1 || true
 	wp cron event run --due-now --quiet >/dev/null 2>&1 || true
-	sleep 10
+	sleep 5
 done

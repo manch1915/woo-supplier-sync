@@ -74,7 +74,9 @@ final class SyncRunner {
 	 * Queues the next step for a run.
 	 */
 	public static function schedule( int $run_id ): void {
-		as_enqueue_async_action( self::HOOK, [ $run_id ], 'supplier-sync', true );
+		if ( false === as_has_scheduled_action( self::HOOK, [ $run_id ], 'supplier-sync' ) ) {
+			as_enqueue_async_action( self::HOOK, [ $run_id ], 'supplier-sync' );
+		}
 	}
 
 	/**
@@ -137,9 +139,45 @@ final class SyncRunner {
 	 * Action Scheduler callback.
 	 */
 	public function handle( int $run_id ): void {
-		if ( $this->step( $run_id ) ) {
-			self::schedule( $run_id );
+		$budget = (float) $this->settings->time_budget();
+		$until  = microtime( true ) + $budget;
+
+		if ( ! self::lock( $run_id, (int) $budget + 60 ) ) {
+			return;
 		}
+
+		// Short phases (fetch, sweep, finish) run back to back in one job; only the time
+		// budget, not the phase boundary, decides when to hand over to the next job.
+		do {
+			$more = $this->step( $run_id, max( 1.0, $until - microtime( true ) ) );
+		} while ( $more && microtime( true ) < $until - 1.0 );
+
+		self::unlock( $run_id );
+		if ( $more ) {
+			// Not schedule(): Action Scheduler still counts this job as in progress, so the
+			// "already queued" check would swallow the continuation. The lock prevents overlaps.
+			as_enqueue_async_action( self::HOOK, [ $run_id ], 'supplier-sync' );
+		}
+	}
+
+	/**
+	 * One worker per run. add_option() is atomic thanks to the unique option_name key.
+	 */
+	private static function lock( int $run_id, int $ttl ): bool {
+		$key = 'supplier_sync_lock_' . $run_id;
+		if ( add_option( $key, time() + $ttl, '', false ) ) {
+			return true;
+		}
+		// A crashed worker leaves a stale lock behind; take it over once it expires.
+		if ( (int) get_option( $key ) < time() ) {
+			update_option( $key, time() + $ttl, false );
+			return true;
+		}
+		return false;
+	}
+
+	private static function unlock( int $run_id ): void {
+		delete_option( 'supplier_sync_lock_' . $run_id );
 	}
 
 	private function fetch( Run $run, Supplier $supplier ): void {

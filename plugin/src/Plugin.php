@@ -9,6 +9,7 @@ declare(strict_types=1);
 
 namespace SupplierSync;
 
+use SupplierSync\Admin\AdminPage;
 use SupplierSync\Cli\Command;
 use SupplierSync\Domain\Catalog\Differ;
 use SupplierSync\Feed\ReaderFactory;
@@ -28,6 +29,8 @@ use SupplierSync\Infrastructure\Woo\ImageImporter;
 use SupplierSync\Infrastructure\Woo\ProductSnapshot;
 use SupplierSync\Infrastructure\Woo\ProductWriter;
 use SupplierSync\Notify\Notifier;
+use SupplierSync\Rest\RestRoutes;
+use SupplierSync\Sync\FeedPreview;
 use SupplierSync\Sync\RunService;
 use SupplierSync\Sync\Scheduler;
 use SupplierSync\Sync\SyncRunner;
@@ -80,6 +83,16 @@ final class Plugin {
 				$c->get( Notifier::class ),
 			)
 		);
+		$c->set(
+			FeedPreview::class,
+			static fn ( Container $c ): FeedPreview => new FeedPreview(
+				$c->get( ReaderFactory::class ),
+				$c->get( FeedDownloader::class ),
+				$c->get( FeedStorage::class ),
+				$c->get( SiteCrawler::class ),
+				$c->get( Settings::class ),
+			)
+		);
 		$c->set( RunService::class, static fn ( Container $c ): RunService => new RunService( $c->get( RunRepository::class ), $c->get( OfferRepository::class ), $c->get( SyncRunner::class ) ) );
 		$c->set( Scheduler::class, static fn ( Container $c ): Scheduler => new Scheduler( $c->get( SupplierRepository::class ), $c->get( RunService::class ) ) );
 
@@ -120,6 +133,12 @@ final class Plugin {
 		);
 
 		add_action( 'before_delete_post', static fn ( $post_id ) => $c->get( ProductMapRepository::class )->forget_product( (int) $post_id ) );
+
+		( new RestRoutes( $c ) )->register();
+
+		if ( is_admin() ) {
+			( new AdminPage() )->register();
+		}
 
 		if ( defined( 'WP_CLI' ) && WP_CLI ) {
 			\WP_CLI::add_command( 'supplier-sync', new Command( $c ) );

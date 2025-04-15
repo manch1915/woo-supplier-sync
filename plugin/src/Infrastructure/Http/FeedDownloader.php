@@ -77,10 +77,10 @@ final class FeedDownloader {
 			$url = \WP_Http::make_absolute_url( $location, $url );
 		}
 
-		if ( null === $response || is_wp_error( $response ) ) {
+		if ( is_wp_error( $response ) ) {
 			$this->storage->delete( $path );
 			/* translators: %s: error message from the HTTP client. */
-			throw new FeedException( sprintf( __( 'Download failed: %s', 'woo-supplier-sync' ), null === $response ? 'no response' : $response->get_error_message() ) );
+			throw new FeedException( sprintf( __( 'Download failed: %s', 'woo-supplier-sync' ), $response->get_error_message() ) );
 		}
 
 		$code = (int) wp_remote_retrieve_response_code( $response );

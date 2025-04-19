@@ -45,11 +45,13 @@ final class SupplierConfigSanitizer {
 		$mapping = (array) ( $config['mapping'] ?? [] );
 		$scraper = (array) ( $config['scraper'] ?? [] );
 
+		$url = esc_url_raw( trim( (string) ( $source['url'] ?? '' ) ), [ 'http', 'https' ] );
+
 		$clean = [
 			'source'              => [
-				'url'           => esc_url_raw( trim( (string) ( $source['url'] ?? '' ) ), [ 'http', 'https' ] ),
+				'url'           => $url,
 				'attachment_id' => absint( $source['attachment_id'] ?? 0 ),
-				'headers'       => $this->headers( (array) ( $source['headers'] ?? [] ), $existing ),
+				'headers'       => $this->headers( (array) ( $source['headers'] ?? [] ), $existing, $url ),
 			],
 			'currency'            => $this->currency( (string) ( $config['currency'] ?? '' ) ),
 			'mapping'             => [
@@ -100,12 +102,17 @@ final class SupplierConfigSanitizer {
 	}
 
 	/**
-	 * @param array<mixed>  $headers  Name => value; a masked value keeps the stored secret.
+	 * A masked value keeps the stored secret, but only while the feed stays on the same origin:
+	 * otherwise pointing the URL at another host would hand that host the API key.
+	 *
+	 * @param array<mixed>  $headers  Name => value.
 	 * @param Supplier|null $existing Stored profile.
+	 * @param string        $url      New feed URL.
 	 * @return array<string, string>
 	 */
-	private function headers( array $headers, ?Supplier $existing ): array {
-		$stored = (array) ( $existing?->config['source']['headers'] ?? [] );
+	private function headers( array $headers, ?Supplier $existing, string $url ): array {
+		$same_origin = null !== $existing && self::origin( $existing->source_url() ) === self::origin( $url );
+		$stored      = $same_origin ? (array) ( $existing->config['source']['headers'] ?? [] ) : [];
 		$clean  = [];
 		foreach ( $headers as $name => $value ) {
 			$name = (string) preg_replace( '/[^A-Za-z0-9-]/', '', (string) $name );
@@ -116,6 +123,11 @@ final class SupplierConfigSanitizer {
 			$clean[ $name ] = self::SECRET_MASK === $value ? (string) ( $stored[ $name ] ?? '' ) : sanitize_text_field( $value );
 		}
 		return $clean;
+	}
+
+	private static function origin( string $url ): string {
+		$parts = wp_parse_url( $url );
+		return is_array( $parts ) ? strtolower( ( $parts['scheme'] ?? '' ) . '://' . ( $parts['host'] ?? '' ) . ':' . ( $parts['port'] ?? '' ) ) : '';
 	}
 
 	private function currency( string $code ): string {

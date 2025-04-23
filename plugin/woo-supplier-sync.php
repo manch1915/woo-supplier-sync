@@ -27,21 +27,17 @@ define( 'SUPPLIER_SYNC_VERSION', '1.0.0' );
 define( 'SUPPLIER_SYNC_FILE', __FILE__ );
 define( 'SUPPLIER_SYNC_DIR', plugin_dir_path( __FILE__ ) );
 
-if ( is_readable( __DIR__ . '/vendor/autoload.php' ) ) {
-	require_once __DIR__ . '/vendor/autoload.php';
-} else {
-	// The plugin has no runtime dependencies, so a release zip ships without vendor/.
-	spl_autoload_register(
-		static function ( string $class_name ): void {
-			if ( str_starts_with( $class_name, 'SupplierSync\\' ) ) {
-				$file = __DIR__ . '/src/' . str_replace( '\\', '/', substr( $class_name, 13 ) ) . '.php';
-				if ( is_readable( $file ) ) {
-					require_once $file;
-				}
+// No runtime dependencies, so a tiny PSR-4 loader is enough. vendor/ holds dev tools only.
+spl_autoload_register(
+	static function ( string $class_name ): void {
+		if ( str_starts_with( $class_name, 'SupplierSync\\' ) ) {
+			$file = __DIR__ . '/src/' . str_replace( '\\', '/', substr( $class_name, 13 ) ) . '.php';
+			if ( is_readable( $file ) ) {
+				require_once $file;
 			}
 		}
-	);
-}
+	}
+);
 
 add_action(
 	'before_woocommerce_init',

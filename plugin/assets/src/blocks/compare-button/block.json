@@ -1,0 +1,26 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "supplier-sync/compare-button",
+	"title": "Compare toggle",
+	"category": "woocommerce",
+	"description": "Adds the product to the comparison tray. Inserted after the Add to cart button automatically.",
+	"textdomain": "woo-supplier-sync",
+	"attributes": {},
+	"usesContext": [
+		"postId",
+		"postType"
+	],
+	"supports": {
+		"interactivity": true,
+		"html": false,
+		"reusable": false
+	},
+	"blockHooks": {
+		"woocommerce/product-button": "after",
+		"woocommerce/add-to-cart-form": "after"
+	},
+	"render": "file:./render.php",
+	"style": "file:./style-index.css",
+	"editorScript": "file:./index.js"
+}

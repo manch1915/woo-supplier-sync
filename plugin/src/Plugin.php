@@ -30,6 +30,7 @@ use SupplierSync\Infrastructure\Woo\ProductSnapshot;
 use SupplierSync\Infrastructure\Woo\ProductWriter;
 use SupplierSync\Notify\Notifier;
 use SupplierSync\Rest\RestRoutes;
+use SupplierSync\Storefront\Storefront;
 use SupplierSync\Sync\FeedPreview;
 use SupplierSync\Sync\RunService;
 use SupplierSync\Sync\Scheduler;
@@ -135,6 +136,7 @@ final class Plugin {
 		add_action( 'before_delete_post', static fn ( $post_id ) => $c->get( ProductMapRepository::class )->forget_product( (int) $post_id ) );
 
 		( new RestRoutes( $c ) )->register();
+		( new Storefront() )->register();
 
 		if ( is_admin() ) {
 			( new AdminPage() )->register();

@@ -5,6 +5,7 @@
 	<file>./woo-supplier-sync.php</file>
 	<file>./uninstall.php</file>
 	<file>./src</file>
+	<file>./assets/src/blocks</file>
 	<file>./tests</file>
 
 	<exclude-pattern>*/vendor/*</exclude-pattern>

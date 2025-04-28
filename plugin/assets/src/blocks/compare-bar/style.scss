@@ -1,0 +1,363 @@
+// Uses the theme's own colours and fonts, so it fits any block theme.
+.wss-compare {
+	--wss-c-bg: var(--wp--preset--color--base, #fff);
+	--wss-c-fg: var(--wp--preset--color--contrast, #111);
+	--wss-c-line: color-mix(in srgb, var(--wss-c-fg) 14%, transparent);
+	--wss-c-soft: color-mix(in srgb, var(--wss-c-fg) 5%, var(--wss-c-bg));
+	--wss-c-mark: color-mix(in srgb, #e0a100 18%, var(--wss-c-bg));
+
+	font-size: var(--wp--preset--font-size--small, 0.9rem);
+}
+
+.wss-compare-tray {
+	position: fixed;
+	z-index: 9990;
+	inset: auto 16px 16px;
+	display: grid;
+	grid-template-columns: minmax(0, 1fr) auto;
+	align-items: center;
+	gap: 8px 16px;
+	max-width: 880px;
+	margin-inline: auto;
+	padding: 10px 12px 10px 14px;
+	color: var(--wss-c-fg);
+	background: var(--wss-c-bg);
+	border: 1px solid var(--wss-c-line);
+	border-radius: 14px;
+	box-shadow: 0 12px 32px rgb(0 0 0 / 14%);
+	animation: wss-tray-in 0.22s ease-out;
+
+	&[hidden] {
+		display: none;
+	}
+
+	&__items {
+		display: flex;
+		gap: 8px;
+		min-width: 0;
+		margin: 0;
+		padding: 0;
+		overflow-x: auto;
+		list-style: none;
+	}
+
+	&__item {
+		position: relative;
+		display: flex;
+		align-items: center;
+		gap: 8px;
+		max-width: 210px;
+		margin: 0;
+		padding: 4px 30px 4px 4px;
+		background: var(--wss-c-soft);
+		border-radius: 10px;
+
+		img {
+			flex: none;
+			width: 44px;
+			height: 44px;
+			object-fit: cover;
+			border-radius: 7px;
+		}
+	}
+
+	&__name {
+		overflow: hidden;
+		display: -webkit-box;
+		-webkit-line-clamp: 2;
+		-webkit-box-orient: vertical;
+		line-height: 1.25;
+	}
+
+	&__remove {
+		position: absolute;
+		top: 50%;
+		right: 4px;
+		display: grid;
+		place-items: center;
+		width: 24px;
+		height: 24px;
+		padding: 0;
+		border: 0;
+		border-radius: 50%;
+		background: transparent;
+		color: inherit;
+		cursor: pointer;
+		transform: translateY(-50%);
+
+		&:hover,
+		&:focus-visible {
+			background: var(--wss-c-line);
+		}
+	}
+
+	&__hint {
+		grid-column: 1;
+		grid-row: 2;
+		margin: 0;
+		opacity: 0.7;
+
+		&:empty {
+			display: none;
+		}
+	}
+
+	&__actions {
+		grid-column: 2;
+		grid-row: 1 / span 2;
+		display: flex;
+		gap: 8px;
+	}
+}
+
+.wss-compare-btn {
+	min-height: 44px;
+	padding: 0 18px;
+	border: 1px solid var(--wss-c-fg);
+	border-radius: 999px;
+	background: var(--wss-c-fg);
+	color: var(--wss-c-bg);
+	font: inherit;
+	font-weight: 600;
+	white-space: nowrap;
+	cursor: pointer;
+
+	&.is-ghost {
+		background: transparent;
+		color: var(--wss-c-fg);
+		border-color: var(--wss-c-line);
+	}
+
+	&:disabled {
+		cursor: not-allowed;
+		opacity: 0.45;
+	}
+
+	&:focus-visible {
+		outline: 2px solid var(--wss-c-fg);
+		outline-offset: 2px;
+	}
+}
+
+@media (max-width: 600px) {
+	.wss-compare-tray {
+		inset: auto 8px 8px;
+		grid-template-columns: minmax(0, 1fr);
+
+		&__item {
+			max-width: none;
+			padding-right: 28px;
+		}
+
+		&__name {
+			display: none;
+		}
+
+		&__hint {
+			grid-row: auto;
+		}
+
+		&__actions {
+			grid-column: 1;
+			grid-row: auto;
+
+			.wss-compare-btn {
+				flex: 1;
+			}
+		}
+	}
+}
+
+// Dialog with the table
+
+.wss-compare-dialog {
+	width: min(1100px, calc(100vw - 32px));
+	max-height: calc(100vh - 48px);
+	padding: 0;
+	color: var(--wss-c-fg);
+	background: var(--wss-c-bg);
+	border: 0;
+	border-radius: 16px;
+	box-shadow: 0 24px 64px rgb(0 0 0 / 28%);
+
+	&::backdrop {
+		background: rgb(10 12 14 / 55%);
+	}
+
+	&[open] {
+		animation: wss-dialog-in 0.2s ease-out;
+	}
+
+	&__inner {
+		display: flex;
+		flex-direction: column;
+		max-height: calc(100vh - 48px);
+	}
+
+	&__head {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		gap: 12px 20px;
+		padding: 18px 20px;
+		border-bottom: 1px solid var(--wss-c-line);
+	}
+
+	&__title {
+		flex: 1;
+		margin: 0;
+		font-size: var(--wp--preset--font-size--large, 1.4rem);
+	}
+
+	&__close {
+		display: grid;
+		place-items: center;
+		width: 40px;
+		height: 40px;
+		padding: 0;
+		border: 1px solid var(--wss-c-line);
+		border-radius: 50%;
+		background: transparent;
+		color: inherit;
+		cursor: pointer;
+	}
+
+	&__status {
+		margin: 0;
+		padding: 24px 20px;
+
+		&.is-error {
+			color: #b42318;
+		}
+
+		&[hidden] {
+			display: none;
+		}
+	}
+}
+
+.wss-compare-switch {
+	display: inline-flex;
+	align-items: center;
+	gap: 8px;
+	cursor: pointer;
+
+	input {
+		width: 18px;
+		height: 18px;
+		margin: 0;
+		accent-color: var(--wss-c-fg);
+	}
+}
+
+.wss-compare-table-wrap {
+	overflow: auto;
+
+	&[hidden] {
+		display: none;
+	}
+}
+
+.wss-compare-table {
+	width: 100%;
+	min-width: 560px;
+	border-collapse: separate;
+	border-spacing: 0;
+
+	th,
+	td {
+		padding: 12px 16px;
+		text-align: left;
+		vertical-align: top;
+		border-bottom: 1px solid var(--wss-c-line);
+	}
+
+	thead td,
+	thead th {
+		position: sticky;
+		top: 0;
+		z-index: 2;
+		background: var(--wss-c-bg);
+	}
+
+	tbody th {
+		position: sticky;
+		left: 0;
+		z-index: 1;
+		width: 22%;
+		background: var(--wss-c-bg);
+		font-weight: 500;
+		opacity: 0.85;
+	}
+
+	tr.is-different td,
+	tr.is-different th {
+		background: var(--wss-c-mark);
+	}
+
+	tr.is-different th {
+		box-shadow: inset 3px 0 0 #e0a100;
+	}
+
+	tr[hidden] {
+		display: none;
+	}
+
+	&__product {
+		min-width: 170px;
+		font-weight: 600;
+
+		a {
+			display: grid;
+			gap: 8px;
+			color: inherit;
+			text-decoration: none;
+
+			&:hover span {
+				text-decoration: underline;
+			}
+		}
+
+		img {
+			width: 120px;
+			height: 120px;
+			object-fit: contain;
+			border-radius: 10px;
+			background: var(--wss-c-soft);
+		}
+	}
+
+	&__remove {
+		margin-top: 8px;
+		padding: 0;
+		border: 0;
+		background: none;
+		color: inherit;
+		font: inherit;
+		font-weight: 400;
+		text-decoration: underline;
+		opacity: 0.7;
+		cursor: pointer;
+	}
+}
+
+@keyframes wss-tray-in {
+	from {
+		opacity: 0;
+		transform: translateY(12px);
+	}
+}
+
+@keyframes wss-dialog-in {
+	from {
+		opacity: 0;
+		transform: translateY(8px) scale(0.99);
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.wss-compare-tray,
+	.wss-compare-dialog[open] {
+		animation: none;
+	}
+}

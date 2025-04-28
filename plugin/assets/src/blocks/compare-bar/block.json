@@ -1,0 +1,20 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "supplier-sync/compare-bar",
+	"title": "Comparison tray",
+	"category": "woocommerce",
+	"description": "Tray with the products picked for comparison and the comparison table. Printed automatically on pages with compare toggles.",
+	"textdomain": "woo-supplier-sync",
+	"attributes": {},
+	"supports": {
+		"interactivity": true,
+		"html": false,
+		"inserter": false,
+		"reusable": false
+	},
+	"editorScript": "file:./index.js",
+	"viewScriptModule": "file:./view.js",
+	"render": "file:./render.php",
+	"style": "file:./style-index.css"
+}

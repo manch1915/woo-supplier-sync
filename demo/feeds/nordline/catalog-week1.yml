@@ -1,0 +1,360 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<yml_catalog date="2026-10-12T06:00:00+03:00">
+  <shop>
+    <name>Nordline Distribution</name>
+    <company>Nordline Distribution LLC</company>
+    <url>http://feeds/nordline/</url>
+    <currencies>
+      <currency id="RUR" rate="1"/>
+    </currencies>
+    <categories>
+      <category id="1">Audio</category>
+      <category id="11" parentId="1">Headphones</category>
+      <category id="12" parentId="1">Earbuds</category>
+      <category id="13" parentId="1">Speakers</category>
+      <category id="2">Power &amp; charging</category>
+      <category id="21" parentId="2">Chargers</category>
+      <category id="22" parentId="2">Power banks</category>
+      <category id="23" parentId="2">Cables</category>
+      <category id="3">Smart home</category>
+      <category id="31" parentId="3">Lighting</category>
+      <category id="4">Wearables</category>
+      <category id="5">Cameras</category>
+    </categories>
+    <offers>
+      <offer id="NL-10011" available="true" group_id="1001">
+        <name>Aurora ANC 700 wireless headphones, Black</name>
+        <vendor>Aurora</vendor>
+        <vendorCode>AUR-ANC700-BLK</vendorCode>
+        <barcode>4607001110017</barcode>
+        <url>http://feeds/nordline/p/NL-10011</url>
+        <price>9400</price>
+        <oldprice>13990</oldprice>
+        <currencyId>RUR</currencyId>
+        <categoryId>11</categoryId>
+        <picture>http://feeds/nordline/img/aurora-anc-black.jpg</picture>
+        <picture>http://feeds/nordline/img/aurora-anc-case.jpg</picture>
+        <description><![CDATA[<p>Over-ear headphones with hybrid active noise cancelling and a transparency mode for when you need to hear the station announcement.</p><p>Memory-foam cushions, fold-flat hinges and a hard case in the box. A 10-minute charge gives about five hours of playback.</p>]]></description>
+        <param name="Color">Black</param>
+        <param name="Driver size" unit="mm">40</param>
+        <param name="Battery life" unit="h">38</param>
+        <param name="Bluetooth">5.3</param>
+        <param name="Noise cancelling">Active (hybrid)</param>
+        <param name="Weight" unit="g">254</param>
+        <count>14</count>
+      </offer>
+      <offer id="NL-10012" available="true" group_id="1001">
+        <name>Aurora ANC 700 wireless headphones, Sand</name>
+        <vendor>Aurora</vendor>
+        <vendorCode>AUR-ANC700-SND</vendorCode>
+        <barcode>4607001110024</barcode>
+        <url>http://feeds/nordline/p/NL-10012</url>
+        <price>9400</price>
+        <oldprice>13990</oldprice>
+        <currencyId>RUR</currencyId>
+        <categoryId>11</categoryId>
+        <picture>http://feeds/nordline/img/aurora-anc-sand.jpg</picture>
+        <picture>http://feeds/nordline/img/aurora-anc-case.jpg</picture>
+        <description><![CDATA[<p>Over-ear headphones with hybrid active noise cancelling and a transparency mode for when you need to hear the station announcement.</p><p>Memory-foam cushions, fold-flat hinges and a hard case in the box. A 10-minute charge gives about five hours of playback.</p>]]></description>
+        <param name="Color">Sand</param>
+        <param name="Driver size" unit="mm">40</param>
+        <param name="Battery life" unit="h">38</param>
+        <param name="Bluetooth">5.3</param>
+        <param name="Noise cancelling">Active (hybrid)</param>
+        <param name="Weight" unit="g">254</param>
+        <count>6</count>
+      </offer>
+      <offer id="NL-10013" available="false" group_id="1001">
+        <name>Aurora ANC 700 wireless headphones, Navy</name>
+        <vendor>Aurora</vendor>
+        <vendorCode>AUR-ANC700-NVY</vendorCode>
+        <barcode>4607001110031</barcode>
+        <url>http://feeds/nordline/p/NL-10013</url>
+        <price>9400</price>
+        <oldprice>13990</oldprice>
+        <currencyId>RUR</currencyId>
+        <categoryId>11</categoryId>
+        <picture>http://feeds/nordline/img/aurora-anc-navy.jpg</picture>
+        <picture>http://feeds/nordline/img/aurora-anc-case.jpg</picture>
+        <description><![CDATA[<p>Over-ear headphones with hybrid active noise cancelling and a transparency mode for when you need to hear the station announcement.</p><p>Memory-foam cushions, fold-flat hinges and a hard case in the box. A 10-minute charge gives about five hours of playback.</p>]]></description>
+        <param name="Color">Navy</param>
+        <param name="Driver size" unit="mm">40</param>
+        <param name="Battery life" unit="h">38</param>
+        <param name="Bluetooth">5.3</param>
+        <param name="Noise cancelling">Active (hybrid)</param>
+        <param name="Weight" unit="g">254</param>
+        <count>0</count>
+      </offer>
+      <offer id="NL-10021" available="true" group_id="1002">
+        <name>Aurora Buds Pro earbuds, Black</name>
+        <vendor>Aurora</vendor>
+        <vendorCode>AUR-BUDSPRO-BLK</vendorCode>
+        <barcode>4607001110048</barcode>
+        <url>http://feeds/nordline/p/NL-10021</url>
+        <price>5600</price>
+        <currencyId>RUR</currencyId>
+        <categoryId>12</categoryId>
+        <picture>http://feeds/nordline/img/aurora-buds-black.jpg</picture>
+        <description><![CDATA[<p>True wireless earbuds with noise cancelling, three sizes of silicone tips and a pocket-sized charging case with USB-C and Qi charging.</p>]]></description>
+        <param name="Color">Black</param>
+        <param name="Battery life" unit="h">7</param>
+        <param name="Water resistance">IPX4</param>
+        <param name="Bluetooth">5.3</param>
+        <param name="Noise cancelling">Active</param>
+        <param name="Weight" unit="g">5</param>
+        <count>22</count>
+      </offer>
+      <offer id="NL-10022" available="true" group_id="1002">
+        <name>Aurora Buds Pro earbuds, White</name>
+        <vendor>Aurora</vendor>
+        <vendorCode>AUR-BUDSPRO-WHT</vendorCode>
+        <barcode>4607001110055</barcode>
+        <url>http://feeds/nordline/p/NL-10022</url>
+        <price>5600</price>
+        <currencyId>RUR</currencyId>
+        <categoryId>12</categoryId>
+        <picture>http://feeds/nordline/img/aurora-buds-white.jpg</picture>
+        <description><![CDATA[<p>True wireless earbuds with noise cancelling, three sizes of silicone tips and a pocket-sized charging case with USB-C and Qi charging.</p>]]></description>
+        <param name="Color">White</param>
+        <param name="Battery life" unit="h">7</param>
+        <param name="Water resistance">IPX4</param>
+        <param name="Bluetooth">5.3</param>
+        <param name="Noise cancelling">Active</param>
+        <param name="Weight" unit="g">5</param>
+        <count>9</count>
+      </offer>
+      <offer id="NL-10031" available="true" group_id="1003">
+        <name>Pulse Mini 2 portable speaker, Graphite</name>
+        <vendor>Pulse</vendor>
+        <vendorCode>PLS-MINI2-GRP</vendorCode>
+        <barcode>4607001110062</barcode>
+        <url>http://feeds/nordline/p/NL-10031</url>
+        <price>3200</price>
+        <currencyId>RUR</currencyId>
+        <categoryId>13</categoryId>
+        <picture>http://feeds/nordline/img/pulse-mini-graphite.jpg</picture>
+        <description><![CDATA[<p>A palm-sized speaker that survives the beach and the shower. Pair two of them for stereo, hang it from a backpack with the strap.</p>]]></description>
+        <param name="Color">Graphite</param>
+        <param name="Output power" unit="W">10</param>
+        <param name="Battery life" unit="h">14</param>
+        <param name="Water resistance">IP67</param>
+        <param name="Bluetooth">5.3</param>
+        <param name="Weight" unit="g">380</param>
+        <count>31</count>
+      </offer>
+      <offer id="NL-10032" available="true" group_id="1003">
+        <name>Pulse Mini 2 portable speaker, Coral</name>
+        <vendor>Pulse</vendor>
+        <vendorCode>PLS-MINI2-CRL</vendorCode>
+        <barcode>4607001110079</barcode>
+        <url>http://feeds/nordline/p/NL-10032</url>
+        <price>3200</price>
+        <currencyId>RUR</currencyId>
+        <categoryId>13</categoryId>
+        <picture>http://feeds/nordline/img/pulse-mini-coral.jpg</picture>
+        <description><![CDATA[<p>A palm-sized speaker that survives the beach and the shower. Pair two of them for stereo, hang it from a backpack with the strap.</p>]]></description>
+        <param name="Color">Coral</param>
+        <param name="Output power" unit="W">10</param>
+        <param name="Battery life" unit="h">14</param>
+        <param name="Water resistance">IP67</param>
+        <param name="Bluetooth">5.3</param>
+        <param name="Weight" unit="g">380</param>
+        <count>12</count>
+      </offer>
+      <offer id="NL-10033" available="true" group_id="1003">
+        <name>Pulse Mini 2 portable speaker, Teal</name>
+        <vendor>Pulse</vendor>
+        <vendorCode>PLS-MINI2-TEA</vendorCode>
+        <barcode>4607001110086</barcode>
+        <url>http://feeds/nordline/p/NL-10033</url>
+        <price>3200</price>
+        <currencyId>RUR</currencyId>
+        <categoryId>13</categoryId>
+        <picture>http://feeds/nordline/img/pulse-mini-teal.jpg</picture>
+        <description><![CDATA[<p>A palm-sized speaker that survives the beach and the shower. Pair two of them for stereo, hang it from a backpack with the strap.</p>]]></description>
+        <param name="Color">Teal</param>
+        <param name="Output power" unit="W">10</param>
+        <param name="Battery life" unit="h">14</param>
+        <param name="Water resistance">IP67</param>
+        <param name="Bluetooth">5.3</param>
+        <param name="Weight" unit="g">380</param>
+        <count>8</count>
+      </offer>
+      <offer id="NL-10040" available="true">
+        <name>Pulse Max party speaker 80 W</name>
+        <vendor>Pulse</vendor>
+        <vendorCode>PLS-MAX</vendorCode>
+        <barcode>4607001110093</barcode>
+        <url>http://feeds/nordline/p/NL-10040</url>
+        <price>18900</price>
+        <oldprice>24990</oldprice>
+        <currencyId>RUR</currencyId>
+        <categoryId>13</categoryId>
+        <picture>http://feeds/nordline/img/pulse-max.jpg</picture>
+        <description><![CDATA[<p>Room-filling sound with two woofers and a passive radiator. Built-in handle, a power bank output and light effects that follow the beat.</p>]]></description>
+        <param name="Output power" unit="W">80</param>
+        <param name="Battery life" unit="h">18</param>
+        <param name="Water resistance">IPX5</param>
+        <param name="Bluetooth">5.3</param>
+        <param name="Weight" unit="kg">3.9</param>
+        <count>3</count>
+      </offer>
+      <offer id="NL-20010" available="true">
+        <name>Volta GaN charger 65 W, 2 × USB-C</name>
+        <vendor>Volta</vendor>
+        <vendorCode>VLT-CH65</vendorCode>
+        <barcode>4607001120016</barcode>
+        <url>http://feeds/nordline/p/NL-20010</url>
+        <price>2450</price>
+        <currencyId>RUR</currencyId>
+        <categoryId>21</categoryId>
+        <picture>http://feeds/nordline/img/volta-ch65.jpg</picture>
+        <description><![CDATA[<p>Compact gallium nitride charger. Powers a 14-inch laptop and a phone at the same time.</p>]]></description>
+        <param name="Power" unit="W">65</param>
+        <param name="Ports">2 × USB-C</param>
+        <param name="Weight" unit="g">112</param>
+        <count>40</count>
+      </offer>
+      <offer id="NL-20020" available="true">
+        <name>Volta Power Bank 20000 mAh PD</name>
+        <vendor>Volta</vendor>
+        <vendorCode>VLT-PB20</vendorCode>
+        <barcode>4607001120023</barcode>
+        <url>http://feeds/nordline/p/NL-20020</url>
+        <price>3100</price>
+        <currencyId>RUR</currencyId>
+        <categoryId>22</categoryId>
+        <picture>http://feeds/nordline/img/volta-pb20.jpg</picture>
+        <description><![CDATA[<p>Charges a laptop over USB-C Power Delivery and two more devices at once.</p>]]></description>
+        <param name="Capacity" unit="mAh">20000</param>
+        <param name="Power" unit="W">45</param>
+        <param name="Weight" unit="g">410</param>
+        <count>0</count>
+      </offer>
+      <offer id="NL-20030" available="true">
+        <name>Volta Power Bank 10000 mAh</name>
+        <vendor>Volta</vendor>
+        <vendorCode>VLT-PB10</vendorCode>
+        <barcode>4607001120030</barcode>
+        <url>http://feeds/nordline/p/NL-20030</url>
+        <price>1950</price>
+        <currencyId>RUR</currencyId>
+        <categoryId>22</categoryId>
+        <picture>http://feeds/nordline/img/volta-pb10.jpg</picture>
+        <description><![CDATA[<p>Slim power bank that fits a jeans pocket. Two full phone charges.</p>]]></description>
+        <param name="Capacity" unit="mAh">10000</param>
+        <param name="Power" unit="W">20</param>
+        <param name="Weight" unit="g">210</param>
+        <count>18</count>
+      </offer>
+      <offer id="NL-20040" available="true">
+        <name>Volta braided USB-C cable 2 m</name>
+        <vendor>Volta</vendor>
+        <vendorCode>VLT-CBL2</vendorCode>
+        <barcode>4607001120047</barcode>
+        <url>http://feeds/nordline/p/NL-20040</url>
+        <price>590</price>
+        <currencyId>RUR</currencyId>
+        <categoryId>23</categoryId>
+        <picture>http://feeds/nordline/img/volta-cable.jpg</picture>
+        <description><![CDATA[<p>Nylon-braided USB-C to USB-C cable rated for 100 W.</p>]]></description>
+        <param name="Length" unit="m">2</param>
+        <param name="Power" unit="W">100</param>
+        <count>120</count>
+      </offer>
+      <offer id="NL-30010" available="true">
+        <name>Lumen Arc LED desk lamp</name>
+        <vendor>Lumen</vendor>
+        <vendorCode>LMN-ARC</vendorCode>
+        <barcode>4607001130015</barcode>
+        <url>http://feeds/nordline/p/NL-30010</url>
+        <price>4300</price>
+        <currencyId>RUR</currencyId>
+        <categoryId>31</categoryId>
+        <picture>http://feeds/nordline/img/lumen-arc.jpg</picture>
+        <description><![CDATA[<p>Desk lamp with an adjustable arm, stepless dimming and colour temperature from warm to daylight.</p>]]></description>
+        <param name="Colour temperature" unit="K">2700–6500</param>
+        <param name="Power" unit="W">12</param>
+        <param name="Brightness" unit="lm">600</param>
+        <count>9</count>
+      </offer>
+      <offer id="NL-30020" available="true">
+        <name>Lumen smart bulb E27, 4-pack</name>
+        <vendor>Lumen</vendor>
+        <vendorCode>LMN-E27-4</vendorCode>
+        <barcode>4607001130022</barcode>
+        <url>http://feeds/nordline/p/NL-30020</url>
+        <price>2700</price>
+        <currencyId>RUR</currencyId>
+        <categoryId>31</categoryId>
+        <picture>http://feeds/nordline/img/lumen-bulbs.jpg</picture>
+        <description><![CDATA[<p>Wi-Fi bulbs with schedules and scenes. No hub needed.</p>]]></description>
+        <param name="Power" unit="W">9</param>
+        <param name="Brightness" unit="lm">806</param>
+        <param name="Connectivity">Wi-Fi</param>
+        <count>25</count>
+      </offer>
+      <offer id="NL-40011" available="true" group_id="1004">
+        <name>Orbit S2 smartwatch, Black</name>
+        <vendor>Orbit</vendor>
+        <vendorCode>ORB-S2-BLK</vendorCode>
+        <barcode>4607001140014</barcode>
+        <url>http://feeds/nordline/p/NL-40011</url>
+        <price>11900</price>
+        <oldprice>14500</oldprice>
+        <currencyId>RUR</currencyId>
+        <categoryId>4</categoryId>
+        <picture>http://feeds/nordline/img/orbit-s2-black.jpg</picture>
+        <description><![CDATA[<p>AMOLED smartwatch with GPS, heart rate, sleep tracking and ten days on a charge.</p>]]></description>
+        <param name="Color">Black</param>
+        <param name="Display">1.43" AMOLED</param>
+        <param name="Battery life">10 days</param>
+        <param name="Water resistance">5 ATM</param>
+        <count>7</count>
+      </offer>
+      <offer id="NL-40012" available="true" group_id="1004">
+        <name>Orbit S2 smartwatch, Silver</name>
+        <vendor>Orbit</vendor>
+        <vendorCode>ORB-S2-SLV</vendorCode>
+        <barcode>4607001140021</barcode>
+        <url>http://feeds/nordline/p/NL-40012</url>
+        <price>11900</price>
+        <oldprice>14500</oldprice>
+        <currencyId>RUR</currencyId>
+        <categoryId>4</categoryId>
+        <picture>http://feeds/nordline/img/orbit-s2-silver.jpg</picture>
+        <description><![CDATA[<p>AMOLED smartwatch with GPS, heart rate, sleep tracking and ten days on a charge.</p>]]></description>
+        <param name="Color">Silver</param>
+        <param name="Display">1.43" AMOLED</param>
+        <param name="Battery life">10 days</param>
+        <param name="Water resistance">5 ATM</param>
+        <count>4</count>
+      </offer>
+      <offer id="NL-50010" available="true">
+        <name>Kite 4K action camera</name>
+        <vendor>Kite</vendor>
+        <vendorCode>KITE-4K60</vendorCode>
+        <barcode>4607001150013</barcode>
+        <url>http://feeds/nordline/p/NL-50010</url>
+        <price>15600</price>
+        <currencyId>RUR</currencyId>
+        <categoryId>5</categoryId>
+        <picture>http://feeds/nordline/img/kite-4k.jpg</picture>
+        <description><![CDATA[<p>4K at 60 fps with electronic stabilisation, waterproof to 10 m without a housing.</p>]]></description>
+        <param name="Video">4K 60 fps</param>
+        <param name="Water resistance">10 m</param>
+        <param name="Weight" unit="g">126</param>
+        <count>5</count>
+      </offer>
+      <offer id="NL-10039" available="true">
+        <name>Pulse Mini 2 carrying strap</name>
+        <vendor>Pulse</vendor>
+        <vendorCode>PLS-STRAP</vendorCode>
+        <url>http://feeds/nordline/p/NL-10039</url>
+        <currencyId>RUR</currencyId>
+        <categoryId>13</categoryId>
+        <count>50</count>
+      </offer>
+    </offers>
+  </shop>
+</yml_catalog>

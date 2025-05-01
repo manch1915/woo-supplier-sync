@@ -60,9 +60,10 @@ add_filter(
 add_filter(
 	'login_message',
 	static function ( $message ) {
-		if ( 'demo' !== getenv( 'DEMO_LOGIN_HINT' ) && 'local' !== wp_get_environment_type() ) {
+		$hint = (string) getenv( 'DEMO_LOGIN_HINT' );
+		if ( '' === $hint ) {
 			return $message;
 		}
-		return $message . '<p class="message">Demo login: <strong>demo</strong> / <strong>demo</strong></p>';
+		return $message . '<p class="message">' . esc_html( sprintf( 'Demo login: %s', $hint ) ) . '</p>';
 	}
 );

@@ -94,9 +94,20 @@ wp cap add supplier_sync_demo read supplier_sync_view supplier_sync_run >/dev/nu
 wp user get demo >/dev/null 2>&1 || wp user create demo demo@northwind.example --role=supplier_sync_demo --user_pass="${DEMO_USER_PASSWORD:-demo}" --display_name="Demo visitor"
 
 if [ "$(wp post list --post_type=product --format=count)" = "0" ]; then
-	log "First sync of all suppliers"
+	log "First sync with last week's catalogs"
+	# Nordline starts from last week's feed. The current one has price drops, a new colour,
+	# a new product and a discontinued camera, so a dry run in the demo has something to show.
+	wp eval-file /demo/set-feed-url.php "Nordline" "http://feeds/nordline/catalog-week1.yml"
 	wp supplier-sync run all
 	wp supplier-sync import-images
+	wp eval-file /demo/set-feed-url.php "Nordline" "http://feeds/nordline/catalog.yml"
 fi
+
+log "Storefront"
+wp eval-file /demo/shop-template.php
+SHOP_ID=$(wp option get woocommerce_shop_page_id)
+wp option update show_on_front page
+wp option update page_on_front "$SHOP_ID"
+wp post update "$SHOP_ID" --post_title="Catalog" >/dev/null
 
 log "Done. Store: $SITE_URL  Admin: $SITE_URL/wp-admin/admin.php?page=supplier-sync"

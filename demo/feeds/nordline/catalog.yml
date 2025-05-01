@@ -28,7 +28,7 @@
         <vendorCode>AUR-ANC700-BLK</vendorCode>
         <barcode>4607001110017</barcode>
         <url>http://feeds/nordline/p/NL-10011</url>
-        <price>9400</price>
+        <price>8900</price>
         <oldprice>13990</oldprice>
         <currencyId>RUR</currencyId>
         <categoryId>11</categoryId>
@@ -49,7 +49,7 @@
         <vendorCode>AUR-ANC700-SND</vendorCode>
         <barcode>4607001110024</barcode>
         <url>http://feeds/nordline/p/NL-10012</url>
-        <price>9400</price>
+        <price>8900</price>
         <oldprice>13990</oldprice>
         <currencyId>RUR</currencyId>
         <categoryId>11</categoryId>
@@ -64,13 +64,13 @@
         <param name="Weight" unit="g">254</param>
         <count>6</count>
       </offer>
-      <offer id="NL-10013" available="false" group_id="1001">
+      <offer id="NL-10013" available="true" group_id="1001">
         <name>Aurora ANC 700 wireless headphones, Navy</name>
         <vendor>Aurora</vendor>
         <vendorCode>AUR-ANC700-NVY</vendorCode>
         <barcode>4607001110031</barcode>
         <url>http://feeds/nordline/p/NL-10013</url>
-        <price>9400</price>
+        <price>8900</price>
         <oldprice>13990</oldprice>
         <currencyId>RUR</currencyId>
         <categoryId>11</categoryId>
@@ -83,7 +83,7 @@
         <param name="Bluetooth">5.3</param>
         <param name="Noise cancelling">Active (hybrid)</param>
         <param name="Weight" unit="g">254</param>
-        <count>0</count>
+        <count>5</count>
       </offer>
       <offer id="NL-10021" available="true" group_id="1002">
         <name>Aurora Buds Pro earbuds, Black</name>
@@ -180,7 +180,26 @@
         <param name="Weight" unit="g">380</param>
         <count>8</count>
       </offer>
-      <offer id="NL-10040" available="true">
+      <offer id="NL-10034" available="true" group_id="1003">
+        <name>Pulse Mini 2 portable speaker, Sand</name>
+        <vendor>Pulse</vendor>
+        <vendorCode>PLS-MINI2-SND</vendorCode>
+        <barcode>4607001110109</barcode>
+        <url>http://feeds/nordline/p/NL-10034</url>
+        <price>3200</price>
+        <currencyId>RUR</currencyId>
+        <categoryId>13</categoryId>
+        <picture>http://feeds/nordline/img/pulse-mini-sand.jpg</picture>
+        <description><![CDATA[<p>A palm-sized speaker that survives the beach and the shower. Pair two of them for stereo, hang it from a backpack with the strap.</p>]]></description>
+        <param name="Color">Sand</param>
+        <param name="Output power" unit="W">10</param>
+        <param name="Battery life" unit="h">14</param>
+        <param name="Water resistance">IP67</param>
+        <param name="Bluetooth">5.3</param>
+        <param name="Weight" unit="g">380</param>
+        <count>10</count>
+      </offer>
+      <offer id="NL-10040" available="false">
         <name>Pulse Max party speaker 80 W</name>
         <vendor>Pulse</vendor>
         <vendorCode>PLS-MAX</vendorCode>
@@ -197,7 +216,7 @@
         <param name="Water resistance">IPX5</param>
         <param name="Bluetooth">5.3</param>
         <param name="Weight" unit="kg">3.9</param>
-        <count>3</count>
+        <count>0</count>
       </offer>
       <offer id="NL-20010" available="true">
         <name>Volta GaN charger 65 W, 2 × USB-C</name>
@@ -294,6 +313,22 @@
         <param name="Connectivity">Wi-Fi</param>
         <count>25</count>
       </offer>
+      <offer id="NL-30030" available="true">
+        <name>Lumen Glow night light</name>
+        <vendor>Lumen</vendor>
+        <vendorCode>LMN-GLOW</vendorCode>
+        <barcode>4607001130039</barcode>
+        <url>http://feeds/nordline/p/NL-30030</url>
+        <price>1490</price>
+        <currencyId>RUR</currencyId>
+        <categoryId>31</categoryId>
+        <picture>http://feeds/nordline/img/lumen-glow.jpg</picture>
+        <description><![CDATA[<p>Warm night light with a motion sensor. Runs a week on one USB-C charge.</p>]]></description>
+        <param name="Power" unit="W">1.5</param>
+        <param name="Brightness" unit="lm">60</param>
+        <param name="Connectivity">Motion sensor</param>
+        <count>30</count>
+      </offer>
       <offer id="NL-40011" available="true" group_id="1004">
         <name>Orbit S2 smartwatch, Black</name>
         <vendor>Orbit</vendor>
@@ -329,22 +364,6 @@
         <param name="Battery life">10 days</param>
         <param name="Water resistance">5 ATM</param>
         <count>4</count>
-      </offer>
-      <offer id="NL-50010" available="true">
-        <name>Kite 4K action camera</name>
-        <vendor>Kite</vendor>
-        <vendorCode>KITE-4K60</vendorCode>
-        <barcode>4607001150013</barcode>
-        <url>http://feeds/nordline/p/NL-50010</url>
-        <price>15600</price>
-        <currencyId>RUR</currencyId>
-        <categoryId>5</categoryId>
-        <picture>http://feeds/nordline/img/kite-4k.jpg</picture>
-        <description><![CDATA[<p>4K at 60 fps with electronic stabilisation, waterproof to 10 m without a housing.</p>]]></description>
-        <param name="Video">4K 60 fps</param>
-        <param name="Water resistance">10 m</param>
-        <param name="Weight" unit="g">126</param>
-        <count>5</count>
       </offer>
       <offer id="NL-10039" available="true">
         <name>Pulse Mini 2 carrying strap</name>

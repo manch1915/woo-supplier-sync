@@ -1,0 +1,13 @@
+{
+  "name": "supplier-sync-demo-tools",
+  "private": true,
+  "description": "Builds the made-up supplier site and product illustrations for the demo.",
+  "type": "module",
+  "scripts": {
+    "site": "node build-volta-site.mjs",
+    "images": "node render-images.mjs"
+  },
+  "devDependencies": {
+    "sharp": "^0.35.5"
+  }
+}

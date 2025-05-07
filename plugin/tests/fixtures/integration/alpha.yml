@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<yml_catalog date="2026-10-19T08:00:00+03:00">
+  <shop>
+    <categories>
+      <category id="1">Audio</category>
+      <category id="2" parentId="1">Speakers</category>
+    </categories>
+    <offers>
+      <offer id="A-1" available="true">
+        <name>Echo speaker</name>
+        <vendor>Echo</vendor>
+        <vendorCode>ECHO-1</vendorCode>
+        <barcode>4000000000017</barcode>
+        <price>100</price>
+        <currencyId>EUR</currencyId>
+        <categoryId>2</categoryId>
+        <param name="Power" unit="W">20</param>
+        <count>4</count>
+      </offer>
+      <offer id="A-2" available="true">
+        <name>Echo cable</name>
+        <vendorCode>ECHO-CBL</vendorCode>
+        <barcode>4000000000024</barcode>
+        <price>10</price>
+        <currencyId>EUR</currencyId>
+        <categoryId>1</categoryId>
+        <count>50</count>
+      </offer>
+      <offer id="A-3" available="true" group_id="77">
+        <name>Echo buds, black</name>
+        <vendorCode>ECHO-BUDS-BLK</vendorCode>
+        <price>40</price>
+        <currencyId>EUR</currencyId>
+        <categoryId>1</categoryId>
+        <param name="Color">Black</param>
+        <count>3</count>
+      </offer>
+      <offer id="A-4" available="true" group_id="77">
+        <name>Echo buds, white</name>
+        <vendorCode>ECHO-BUDS-WHT</vendorCode>
+        <price>40</price>
+        <currencyId>EUR</currencyId>
+        <categoryId>1</categoryId>
+        <param name="Color">White</param>
+        <count>0</count>
+      </offer>
+    </offers>
+  </shop>
+</yml_catalog>

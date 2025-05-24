@@ -1,0 +1,101 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  php:
+    name: PHP ${{ matrix.php }}
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        php: ["8.2", "8.3", "8.4"]
+    defaults:
+      run:
+        working-directory: plugin
+    steps:
+      - uses: actions/checkout@v4
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php }}
+          extensions: zip, xmlreader, simplexml, dom, mbstring
+          coverage: none
+          tools: composer:v2
+      - name: Install dependencies
+        run: composer install --no-interaction --no-progress
+      - name: Coding standards (WPCS)
+        if: matrix.php == '8.3'
+        run: vendor/bin/phpcs
+      - name: Static analysis (PHPStan)
+        run: vendor/bin/phpstan analyse --memory-limit=1G --no-progress
+      - name: Unit tests
+        run: vendor/bin/phpunit --testsuite unit
+
+  integration:
+    name: WordPress + WooCommerce
+    runs-on: ubuntu-latest
+    services:
+      mysql:
+        image: mysql:8.4
+        env:
+          MYSQL_ROOT_PASSWORD: root
+          MYSQL_DATABASE: wordpress_test
+        ports: ["3306:3306"]
+        options: >-
+          --health-cmd="mysqladmin ping -h 127.0.0.1 -proot"
+          --health-interval=5s --health-timeout=5s --health-retries=20
+    env:
+      WP_CORE_DIR: /tmp/wordpress
+      WP_PLUGINS_DIR: /tmp/wordpress/wp-content/plugins
+      WP_DB_HOST: 127.0.0.1
+      WP_DB_PASS: root
+      WOOCOMMERCE_VERSION: "11.2.1"
+    defaults:
+      run:
+        working-directory: plugin
+    steps:
+      - uses: actions/checkout@v4
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: "8.3"
+          extensions: zip, mysqli, gd, intl
+          coverage: none
+          tools: composer:v2
+      - name: Install dependencies
+        run: composer install --no-interaction --no-progress
+      - name: Download WordPress and WooCommerce
+        run: |
+          mkdir -p "$WP_CORE_DIR"
+          curl -sSL https://wordpress.org/latest.tar.gz | tar -xz --strip-components=1 -C "$WP_CORE_DIR"
+          curl -sSL -o /tmp/woocommerce.zip "https://downloads.wordpress.org/plugin/woocommerce.${WOOCOMMERCE_VERSION}.zip"
+          unzip -q /tmp/woocommerce.zip -d "$WP_PLUGINS_DIR"
+      - name: Integration tests
+        run: vendor/bin/phpunit --testsuite integration
+
+  js:
+    name: Admin app and blocks
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: plugin
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: plugin/package-lock.json
+      - run: npm ci --no-audit --no-fund
+      - name: ESLint
+        run: npm run lint:js
+      - name: TypeScript
+        run: npm run typecheck
+      - name: Build
+        run: npm run build

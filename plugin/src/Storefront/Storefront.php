@@ -104,7 +104,8 @@ final class Storefront {
 
 		foreach ( $ids as $id ) {
 			$product = wc_get_product( $id );
-			if ( ! $product instanceof \WC_Product || 'publish' !== $product->get_status() || ! $product->is_visible() || post_password_required( $product->get_id() ) ) {
+			// Only top-level products: a variation would bypass its parent's password.
+			if ( ! $product instanceof \WC_Product || $product->get_parent_id() > 0 || 'publish' !== $product->get_status() || ! $product->is_visible() || post_password_required( $product->get_id() ) ) {
 				continue;
 			}
 			$products[] = ProductCard::from( $product );

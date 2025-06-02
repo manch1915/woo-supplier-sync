@@ -1,0 +1,1102 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Supplier Sync for WooCommerce 1.0.0\n"
+"Report-Msgid-Bugs-To: https://github.com/manch1915/woo-supplier-sync/issues\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Domain: woo-supplier-sync\n"
+
+msgid "Supplier Sync needs WooCommerce to be installed and active."
+msgstr ""
+
+msgid "Supplier Sync"
+msgstr ""
+
+msgid "Supplier Sync assets are not built. Run npm run build in the plugin folder."
+msgstr ""
+
+msgid "Open"
+msgstr ""
+
+msgid "The uploaded price list file is missing."
+msgstr ""
+
+msgid "The feed URL is empty or not allowed."
+msgstr ""
+
+msgid "Download failed: %s"
+msgstr ""
+
+msgid "The supplier server answered with HTTP %d."
+msgstr ""
+
+msgid "The feed is empty."
+msgstr ""
+
+msgid "The scraper has no start URL."
+msgstr ""
+
+msgid "Cannot open the start page %s."
+msgstr ""
+
+msgid "[Supplier Sync] %1$s: %2$s"
+msgstr ""
+
+msgid "failed"
+msgstr ""
+
+msgid "done"
+msgstr ""
+
+msgid "Supplier Sync is connected. Run reports will arrive here."
+msgstr ""
+
+msgid "%1$s, run #%2$d"
+msgstr ""
+
+msgid "Failed: %s"
+msgstr ""
+
+msgid "Created %1$d, updated %2$d, taken off sale %3$d, unchanged %4$d, errors %5$d."
+msgstr ""
+
+msgid "The bot token looks wrong."
+msgstr ""
+
+msgid "Supplier not found."
+msgstr ""
+
+msgid "Deleted supplier"
+msgstr ""
+
+msgid "Run not found."
+msgstr ""
+
+msgid "Name and feed type are required."
+msgstr ""
+
+msgid "Wait for the current run to finish or cancel it first."
+msgstr ""
+
+msgid "%1$s, was %2$s"
+msgstr ""
+
+msgid "In stock"
+msgstr ""
+
+msgid "On order"
+msgstr ""
+
+msgid "Out of stock"
+msgstr ""
+
+msgid "The supplier profile was deleted."
+msgstr ""
+
+msgid "Removal safety brake"
+msgstr ""
+
+msgid "%1$d offers (%2$d%%) disappeared from the feed, more than the %3$d%% limit. Nothing was taken off sale. Check the feed or raise the limit in the supplier profile."
+msgstr ""
+
+msgid "No supplier offers this product any more."
+msgstr ""
+
+msgid "A supplier dropped part of this product."
+msgstr ""
+
+msgid "Compare"
+msgstr ""
+
+msgid "In comparison"
+msgstr ""
+
+msgid "Compare: 4 max"
+msgstr ""
+
+msgid "Price"
+msgstr ""
+
+msgid "Availability"
+msgstr ""
+
+msgid "SKU"
+msgstr ""
+
+msgid "Remove %s from comparison"
+msgstr ""
+
+msgid "Add one more product to compare."
+msgstr ""
+
+msgid "%1$d of %2$d products"
+msgstr ""
+
+msgid "Could not load the products. Check your connection and try again."
+msgstr ""
+
+msgid "Products to compare"
+msgstr ""
+
+msgid "Clear"
+msgstr ""
+
+msgid "Compare products"
+msgstr ""
+
+msgid "Only show differences"
+msgstr ""
+
+msgid "Close comparison"
+msgstr ""
+
+msgid "Loading…"
+msgstr ""
+
+msgid "Rows where the products differ are highlighted."
+msgstr ""
+
+msgid "Remove"
+msgstr ""
+
+msgid "YML feed"
+msgstr ""
+
+msgid "XML feed"
+msgstr ""
+
+msgid "CSV price list"
+msgstr ""
+
+msgid "Excel price list"
+msgstr ""
+
+msgid "JSON API"
+msgstr ""
+
+msgid "Website"
+msgstr ""
+
+msgid "Manual only"
+msgstr ""
+
+msgid "Every hour"
+msgstr ""
+
+msgid "Every 6 hours"
+msgstr ""
+
+msgid "Twice a day"
+msgstr ""
+
+msgid "Daily at 04:00"
+msgstr ""
+
+msgid "Keep cents"
+msgstr ""
+
+msgid "Up to a whole number"
+msgstr ""
+
+msgid "Up to tens"
+msgstr ""
+
+msgid "Ending in 90 (1 290)"
+msgstr ""
+
+msgid "Ending in .99"
+msgstr ""
+
+msgid "Ending in .90"
+msgstr ""
+
+msgid "New"
+msgstr ""
+
+msgid "Updated"
+msgstr ""
+
+msgid "Off sale"
+msgstr ""
+
+msgid "Error"
+msgstr ""
+
+msgid "No change"
+msgstr ""
+
+msgid "Skipped"
+msgstr ""
+
+msgid "Downloading the feed"
+msgstr ""
+
+msgid "Reading offers"
+msgstr ""
+
+msgid "Updating products"
+msgstr ""
+
+msgid "Checking removed offers"
+msgstr ""
+
+msgid "Finishing"
+msgstr ""
+
+msgid "Title"
+msgstr ""
+
+msgid "Description"
+msgstr ""
+
+msgid "Photos"
+msgstr ""
+
+msgid "Categories"
+msgstr ""
+
+msgid "Attributes"
+msgstr ""
+
+msgid "Sale price"
+msgstr ""
+
+msgid "Stock"
+msgstr ""
+
+msgid "Variations"
+msgstr ""
+
+msgid "Visibility in store"
+msgstr ""
+
+msgid "Catalog visibility"
+msgstr ""
+
+msgid "Product type"
+msgstr ""
+
+msgid "never"
+msgstr ""
+
+msgid "Failed"
+msgstr ""
+
+msgid "Waiting in the queue"
+msgstr ""
+
+msgid "Cancelled"
+msgstr ""
+
+msgid "Nothing would change"
+msgstr ""
+
+msgid "Everything was already up to date"
+msgstr ""
+
+msgid "Try again"
+msgstr ""
+
+msgid "Demo access: you can run syncs and preview changes. Editing suppliers and prices is turned off."
+msgstr ""
+
+msgid "Read-only access."
+msgstr ""
+
+msgid "Queued"
+msgstr ""
+
+msgid "Running"
+msgstr ""
+
+msgid "Preview ready"
+msgstr ""
+
+msgid "Done"
+msgstr ""
+
+msgid "Dry run"
+msgstr ""
+
+msgid "%d%% done"
+msgstr ""
+
+msgid "Overview"
+msgstr ""
+
+msgid "Suppliers"
+msgstr ""
+
+msgid "Prices"
+msgstr ""
+
+msgid "Runs"
+msgstr ""
+
+msgid "Settings"
+msgstr ""
+
+msgid "Open store"
+msgstr ""
+
+msgid "No product changes in the last two weeks."
+msgstr ""
+
+msgid "%s changes in total"
+msgstr ""
+
+msgid "Product changes per day"
+msgstr ""
+
+msgid "Day"
+msgstr ""
+
+msgid "Catalog sync"
+msgstr ""
+
+msgid "Prices, stock and new products from your suppliers, merged into one catalog."
+msgstr ""
+
+msgid "Add supplier"
+msgstr ""
+
+msgid "Products kept in sync"
+msgstr ""
+
+msgid "Supplier offers"
+msgstr ""
+
+msgid "Sold by several suppliers"
+msgstr ""
+
+msgid "Out of stock / on order"
+msgstr ""
+
+msgid "Errors in the last 24 hours"
+msgstr ""
+
+msgid "No suppliers yet"
+msgstr ""
+
+msgid "Add the first supplier"
+msgstr ""
+
+msgid "Connect a YML or XML feed, a CSV or Excel price list, a JSON API or a supplier website."
+msgstr ""
+
+msgid "Last 14 days"
+msgstr ""
+
+msgid "Recent runs"
+msgstr ""
+
+msgid "All runs"
+msgstr ""
+
+msgid "Runs will show up here."
+msgstr ""
+
+msgid "Remove %s"
+msgstr ""
+
+msgid "row"
+msgstr ""
+
+msgid "Add row"
+msgstr ""
+
+msgid "Prices saved. The next run of each supplier recalculates all of its products."
+msgstr ""
+
+msgid "Any supplier"
+msgstr ""
+
+msgid "Any category"
+msgstr ""
+
+msgid "Retail price = purchase price in your currency + markup, never below the minimum margin, then rounded up. The most specific matching rule wins: supplier, then category, then price range."
+msgstr ""
+
+msgid "Markup rules"
+msgstr ""
+
+msgid "Rule"
+msgstr ""
+
+msgid "Applies to"
+msgstr ""
+
+msgid "Cost range, %s"
+msgstr ""
+
+msgid "Markup"
+msgstr ""
+
+msgid "Rounding"
+msgstr ""
+
+msgid "Order"
+msgstr ""
+
+msgid "Everything else"
+msgstr ""
+
+msgid "Used when no rule matches"
+msgstr ""
+
+msgid "Add rule"
+msgstr ""
+
+msgid "Save prices"
+msgstr ""
+
+msgid "Rule name"
+msgstr ""
+
+msgid "Supplier"
+msgstr ""
+
+msgid "Category"
+msgstr ""
+
+msgid "Cost from"
+msgstr ""
+
+msgid "from"
+msgstr ""
+
+msgid "Cost up to"
+msgstr ""
+
+msgid "up to"
+msgstr ""
+
+msgid "Move up"
+msgstr ""
+
+msgid "Move down"
+msgstr ""
+
+msgid "Delete rule"
+msgstr ""
+
+msgid "Markup, %"
+msgstr ""
+
+msgid "% markup"
+msgstr ""
+
+msgid "Minimum margin, %"
+msgstr ""
+
+msgid "% min. margin"
+msgstr ""
+
+msgid "Exchange rates"
+msgstr ""
+
+msgid "How much one unit of a supplier currency costs in %s. Update them when your bank rate moves."
+msgstr ""
+
+msgid "Rate for %s"
+msgstr ""
+
+msgid "Add a currency"
+msgstr ""
+
+msgid "Choose…"
+msgstr ""
+
+msgid "Try a price"
+msgstr ""
+
+msgid "Uses the rules on this screen, including unsaved edits."
+msgstr ""
+
+msgid "Purchase price"
+msgstr ""
+
+msgid "Currency"
+msgstr ""
+
+msgid "Any"
+msgstr ""
+
+msgid "Supplier RRP (optional)"
+msgstr ""
+
+msgid "Cost in store currency"
+msgstr ""
+
+msgid "Margin"
+msgstr ""
+
+msgid "The markup was below the minimum margin, so the margin floor set the price."
+msgstr ""
+
+msgid "All changes"
+msgstr ""
+
+msgid "Errors"
+msgstr ""
+
+msgid "Run #%1$d, %2$s"
+msgstr ""
+
+msgid "Cancel run"
+msgstr ""
+
+msgid "Apply these changes"
+msgstr ""
+
+msgid "If you sync now: %s."
+msgstr ""
+
+msgid "What would change"
+msgstr ""
+
+msgid "What changed"
+msgstr ""
+
+msgid "Filter by change"
+msgstr ""
+
+msgid "Search products"
+msgstr ""
+
+msgid "Search by product title"
+msgstr ""
+
+msgid "No products match this search."
+msgstr ""
+
+msgid "No product was created, changed or taken off sale in this run."
+msgstr ""
+
+msgid "Pages"
+msgstr ""
+
+msgid "Previous"
+msgstr ""
+
+msgid "Page %1$d of %2$d"
+msgstr ""
+
+msgid "Next"
+msgstr ""
+
+msgid "Hide details"
+msgstr ""
+
+msgid "empty"
+msgstr ""
+
+msgid "new text"
+msgstr ""
+
+msgid "Published"
+msgstr ""
+
+msgid "Draft"
+msgstr ""
+
+msgid "changed"
+msgstr ""
+
+msgid "Started by hand"
+msgstr ""
+
+msgid "On schedule"
+msgstr ""
+
+msgid "WP-CLI"
+msgstr ""
+
+msgid "Every sync and dry run, with the list of products it changed."
+msgstr ""
+
+msgid "All suppliers"
+msgstr ""
+
+msgid "No runs yet"
+msgstr ""
+
+msgid "Start a sync or a dry run from the overview."
+msgstr ""
+
+msgid "Run"
+msgstr ""
+
+msgid "Result"
+msgstr ""
+
+msgid "Started"
+msgstr ""
+
+msgid "Took"
+msgstr ""
+
+msgid "Status"
+msgstr ""
+
+msgid "Newer"
+msgstr ""
+
+msgid "Older"
+msgstr ""
+
+msgid "Settings saved."
+msgstr ""
+
+msgid "Test message sent. Check the chat."
+msgstr ""
+
+msgid "When suppliers run out"
+msgstr ""
+
+msgid "Product with zero stock at every supplier"
+msgstr ""
+
+msgid "Keep it visible as out of stock"
+msgstr ""
+
+msgid "Hide it from the catalog, keep the page"
+msgstr ""
+
+msgid "Move it to drafts"
+msgstr ""
+
+msgid "Sell \"on order\" when a supplier can deliver later"
+msgstr ""
+
+msgid "In YML that is available=\"false\". Customers can still buy, and WooCommerce shows \"Available on backorder\"."
+msgstr ""
+
+msgid "Convert to WebP"
+msgstr ""
+
+msgid "Smaller files, faster pages. Every photo is downloaded once, even if several suppliers or products share it."
+msgstr ""
+
+msgid "Quality, %"
+msgstr ""
+
+msgid "Longest side, px (0 keeps the original)"
+msgstr ""
+
+msgid "Reports"
+msgstr ""
+
+msgid "A short summary after every scheduled or manual sync, with a link to the full log."
+msgstr ""
+
+msgid "E-mail"
+msgstr ""
+
+msgid "Telegram bot token"
+msgstr ""
+
+msgid "Create a bot with @BotFather."
+msgstr ""
+
+msgid "Chat ID"
+msgstr ""
+
+msgid "A person, a group or a channel the bot can post to."
+msgstr ""
+
+msgid "Send a test message"
+msgstr ""
+
+msgid "Only report runs with errors"
+msgstr ""
+
+msgid "Performance and logs"
+msgstr ""
+
+msgid "Seconds per background step"
+msgstr ""
+
+msgid "Large feeds are processed in short steps so the server never hits its time limit. Lower it on weak shared hosting."
+msgstr ""
+
+msgid "Keep run logs, days"
+msgstr ""
+
+msgid "Background jobs in WooCommerce › Status › Scheduled actions"
+msgstr ""
+
+msgid "Save settings"
+msgstr ""
+
+msgid "Product title"
+msgstr ""
+
+msgid "Manufacturer SKU"
+msgstr ""
+
+msgid "EAN / barcode"
+msgstr ""
+
+msgid "Stock quantity"
+msgstr ""
+
+msgid "Available flag"
+msgstr ""
+
+msgid "Recommended retail price"
+msgstr ""
+
+msgid "Brand"
+msgstr ""
+
+msgid "Model (joins variations)"
+msgstr ""
+
+msgid "Supplier item ID"
+msgstr ""
+
+msgid "Supplier product page"
+msgstr ""
+
+msgid "Links to products on a listing page"
+msgstr ""
+
+msgid "Link to the next listing page"
+msgstr ""
+
+msgid "Old price"
+msgstr ""
+
+msgid "EAN"
+msgstr ""
+
+msgid "Breadcrumbs"
+msgstr ""
+
+msgid "Specification rows"
+msgstr ""
+
+msgid "Name cell inside a row"
+msgstr ""
+
+msgid "Value cell inside a row"
+msgstr ""
+
+msgid "New supplier"
+msgstr ""
+
+msgid "Point to the feed, check the preview, then save."
+msgstr ""
+
+msgid "Name"
+msgstr ""
+
+msgid "Catalog format"
+msgstr ""
+
+msgid "Prices are in"
+msgstr ""
+
+msgid "Used when a row has no currency of its own. Exchange rates are on the Prices screen."
+msgstr ""
+
+msgid "Sync automatically"
+msgstr ""
+
+msgid "Active"
+msgstr ""
+
+msgid "A paused supplier keeps its products but skips scheduled runs."
+msgstr ""
+
+msgid "Where the catalog is"
+msgstr ""
+
+msgid "Feed URL"
+msgstr ""
+
+msgid "Request headers"
+msgstr ""
+
+msgid "For APIs that need a key, for example Authorization: Bearer …. Values are stored on the server and never shown again."
+msgstr ""
+
+msgid "Header"
+msgstr ""
+
+msgid "Value"
+msgstr ""
+
+msgid "Reading the feed"
+msgstr ""
+
+msgid "YML is read as Yandex Market describes it: offers, categories, params, pictures and group_id for variations. Stock is taken from count, quantity or outlets."
+msgstr ""
+
+msgid "Attributes and categories"
+msgstr ""
+
+msgid "Rename attributes"
+msgstr ""
+
+msgid "Match supplier names to your store attributes, e.g. Colour to Color. Leave the right side empty to drop an attribute."
+msgstr ""
+
+msgid "Supplier attribute"
+msgstr ""
+
+msgid "Store attribute"
+msgstr ""
+
+msgid "Import attributes that are not in the list"
+msgstr ""
+
+msgid "Category mapping"
+msgstr ""
+
+msgid "Supplier category (ID or path such as Power > Chargers) to a store category. Set the store side to 0 to skip that category."
+msgstr ""
+
+msgid "Supplier category"
+msgstr ""
+
+msgid "Store category"
+msgstr ""
+
+msgid "Categories that are not mapped"
+msgstr ""
+
+msgid "Create them in the store"
+msgstr ""
+
+msgid "Do not import those products"
+msgstr ""
+
+msgid "Put into \"%s\""
+msgstr ""
+
+msgid "Create new categories under"
+msgstr ""
+
+msgid "Store root"
+msgstr ""
+
+msgid "Updates and safety"
+msgstr ""
+
+msgid "Fields this supplier may change on products that already exist. New products always get everything."
+msgstr ""
+
+msgid "Stop if more than this share of offers disappears at once, %"
+msgstr ""
+
+msgid "A broken or half-empty feed should not take your catalog off sale. Such a run logs a warning and removes nothing."
+msgstr ""
+
+msgid "Saved"
+msgstr ""
+
+msgid "Delete supplier"
+msgstr ""
+
+msgid "Save changes"
+msgstr ""
+
+msgid "Create supplier"
+msgstr ""
+
+msgid "Feed preview"
+msgstr ""
+
+msgid "Read again"
+msgstr ""
+
+msgid "Read first rows"
+msgstr ""
+
+msgid "The preview downloads the feed, so it is available to store managers only."
+msgstr ""
+
+msgid "Downloads the feed with the settings on the left, unsaved ones included, and shows what the first products would look like."
+msgstr ""
+
+msgid "Downloading the feed…"
+msgstr ""
+
+msgid "Delete this supplier?"
+msgstr ""
+
+msgid "Its products stay in the store. They just stop getting price and stock updates from this supplier."
+msgstr ""
+
+msgid "Keep supplier"
+msgstr ""
+
+msgid "Separator"
+msgstr ""
+
+msgid "Detect"
+msgstr ""
+
+msgid "Semicolon ;"
+msgstr ""
+
+msgid "Comma ,"
+msgstr ""
+
+msgid "Tab"
+msgstr ""
+
+msgid "Pipe |"
+msgstr ""
+
+msgid "Encoding"
+msgstr ""
+
+msgid "Decimal mark in prices"
+msgstr ""
+
+msgid "Path to the product list"
+msgstr ""
+
+msgid "Object with attributes"
+msgstr ""
+
+msgid "Product element"
+msgstr ""
+
+msgid "Attribute elements (XPath)"
+msgstr ""
+
+msgid "Where each field is (XPath inside the product element)"
+msgstr ""
+
+msgid "Which column holds what"
+msgstr ""
+
+msgid "Read the first rows to pick columns from a list instead of typing their names."
+msgstr ""
+
+msgid "Not in the feed"
+msgstr ""
+
+msgid "Columns that become attributes"
+msgstr ""
+
+msgid "Column names, comma separated"
+msgstr ""
+
+msgid "Listing pages to start from, one per line"
+msgstr ""
+
+msgid "Listing pages, max"
+msgstr ""
+
+msgid "Products, max"
+msgstr ""
+
+msgid "Pause between pages, ms"
+msgstr ""
+
+msgid "The crawler stays on the same site, follows robots.txt and identifies itself in the User-Agent."
+msgstr ""
+
+msgid "CSS selectors. Add @attribute to read an attribute instead of text, for example .gallery img@src."
+msgstr ""
+
+msgid "No products found with these settings."
+msgstr ""
+
+msgid "no SKU or EAN"
+msgstr ""
+
+msgid "Raw rows as the supplier sent them"
+msgstr ""
+
+msgid "%d in stock"
+msgstr ""
+
+msgid "on order"
+msgstr ""
+
+msgid "out of stock"
+msgstr ""
+
+msgid "in stock"
+msgstr ""
+
+msgid "Paused"
+msgstr ""
+
+msgid "%s offers"
+msgstr ""
+
+msgid "Next run %s"
+msgstr ""
+
+msgid "Preview changes"
+msgstr ""
+
+msgid "Sync now"
+msgstr ""
+
+msgid "Not synced yet"
+msgstr ""
+
+msgid "Where each supplier publishes its catalog and how its columns map to your products."
+msgstr ""
+
+msgid "Add a supplier to start importing its catalog."
+msgstr ""
+
+msgid "%d second"
+msgid_plural "%d seconds"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "%d minute"
+msgid_plural "%d minutes"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "%d new"
+msgid_plural "%d new"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "%d updated"
+msgid_plural "%d updated"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "%d taken off sale"
+msgid_plural "%d taken off sale"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "%d error"
+msgid_plural "%d errors"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "%d run in progress. This page refreshes on its own."
+msgid_plural "%d runs in progress. This page refreshes on its own."
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "%d offer read so far."
+msgid_plural "%d offers read so far."
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "%d field"
+msgid_plural "%d fields"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "%d photo"
+msgid_plural "%d photos"
+msgstr[0] ""
+msgstr[1] ""

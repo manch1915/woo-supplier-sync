@@ -1,0 +1,1113 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Supplier Sync for WooCommerce 1.0.0\n"
+"Language: ru_RU\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Domain: woo-supplier-sync\n"
+
+msgid "Supplier Sync needs WooCommerce to be installed and active."
+msgstr "Для Supplier Sync нужен установленный и включённый WooCommerce."
+
+msgid "Supplier Sync"
+msgstr "Supplier Sync"
+
+msgid "Supplier Sync assets are not built. Run npm run build in the plugin folder."
+msgstr "Скрипты Supplier Sync не собраны. Выполните npm run build в папке плагина."
+
+msgid "Open"
+msgstr "Открыть"
+
+msgid "The uploaded price list file is missing."
+msgstr "Загруженный файл прайса не найден."
+
+msgid "The feed URL is empty or not allowed."
+msgstr "Адрес фида пустой или недопустимый."
+
+msgid "Download failed: %s"
+msgstr "Не удалось скачать фид: %s"
+
+msgid "The supplier server answered with HTTP %d."
+msgstr "Сервер поставщика ответил кодом HTTP %d."
+
+msgid "The feed is empty."
+msgstr "Фид пустой."
+
+msgid "The scraper has no start URL."
+msgstr "Для парсера не указана стартовая страница."
+
+msgid "Cannot open the start page %s."
+msgstr "Не удалось открыть стартовую страницу %s."
+
+msgid "[Supplier Sync] %1$s: %2$s"
+msgstr "[Supplier Sync] %1$s: %2$s"
+
+msgid "failed"
+msgstr "ошибка"
+
+msgid "done"
+msgstr "готово"
+
+msgid "Supplier Sync is connected. Run reports will arrive here."
+msgstr "Supplier Sync подключён. Сюда будут приходить отчёты о синхронизации."
+
+msgid "%1$s, run #%2$d"
+msgstr "%1$s, запуск №%2$d"
+
+msgid "Failed: %s"
+msgstr "Ошибка: %s"
+
+msgid "Created %1$d, updated %2$d, taken off sale %3$d, unchanged %4$d, errors %5$d."
+msgstr "Создано %1$d, обновлено %2$d, снято с продажи %3$d, без изменений %4$d, ошибок %5$d."
+
+msgid "The bot token looks wrong."
+msgstr "Токен бота выглядит неправильно."
+
+msgid "Supplier not found."
+msgstr "Поставщик не найден."
+
+msgid "Deleted supplier"
+msgstr "Удалённый поставщик"
+
+msgid "Run not found."
+msgstr "Запуск не найден."
+
+msgid "Name and feed type are required."
+msgstr "Укажите название и формат фида."
+
+msgid "Wait for the current run to finish or cancel it first."
+msgstr "Дождитесь окончания текущего запуска или отмените его."
+
+msgid "%1$s, was %2$s"
+msgstr "%1$s, было %2$s"
+
+msgid "In stock"
+msgstr "В наличии"
+
+msgid "On order"
+msgstr "Под заказ"
+
+msgid "Out of stock"
+msgstr "Нет в наличии"
+
+msgid "The supplier profile was deleted."
+msgstr "Профиль поставщика удалён."
+
+msgid "Removal safety brake"
+msgstr "Защита от массового снятия"
+
+msgid "%1$d offers (%2$d%%) disappeared from the feed, more than the %3$d%% limit. Nothing was taken off sale. Check the feed or raise the limit in the supplier profile."
+msgstr "Из фида пропало %1$d предложений (%2$d%%), это больше лимита %3$d%%. С продажи ничего не снято. Проверьте фид или поднимите лимит в профиле поставщика."
+
+msgid "No supplier offers this product any more."
+msgstr "Ни один поставщик больше не предлагает этот товар."
+
+msgid "A supplier dropped part of this product."
+msgstr "Поставщик убрал часть вариантов этого товара."
+
+msgid "Compare"
+msgstr "Сравнить"
+
+msgid "In comparison"
+msgstr "В сравнении"
+
+msgid "Compare: 4 max"
+msgstr "В сравнении уже 4"
+
+msgid "Price"
+msgstr "Цена"
+
+msgid "Availability"
+msgstr "Наличие"
+
+msgid "SKU"
+msgstr "Артикул"
+
+msgid "Remove %s from comparison"
+msgstr "Убрать %s из сравнения"
+
+msgid "Add one more product to compare."
+msgstr "Добавьте ещё один товар для сравнения."
+
+msgid "%1$d of %2$d products"
+msgstr "%1$d из %2$d товаров"
+
+msgid "Could not load the products. Check your connection and try again."
+msgstr "Не удалось загрузить товары. Проверьте соединение и попробуйте ещё раз."
+
+msgid "Products to compare"
+msgstr "Товары для сравнения"
+
+msgid "Clear"
+msgstr "Очистить"
+
+msgid "Compare products"
+msgstr "Сравнение товаров"
+
+msgid "Only show differences"
+msgstr "Только отличия"
+
+msgid "Close comparison"
+msgstr "Закрыть сравнение"
+
+msgid "Loading…"
+msgstr "Загрузка…"
+
+msgid "Rows where the products differ are highlighted."
+msgstr "Строки, в которых товары отличаются, подсвечены."
+
+msgid "Remove"
+msgstr "Убрать"
+
+msgid "YML feed"
+msgstr "YML-фид"
+
+msgid "XML feed"
+msgstr "XML-фид"
+
+msgid "CSV price list"
+msgstr "Прайс CSV"
+
+msgid "Excel price list"
+msgstr "Прайс Excel"
+
+msgid "JSON API"
+msgstr "JSON API"
+
+msgid "Website"
+msgstr "Сайт"
+
+msgid "Manual only"
+msgstr "Только вручную"
+
+msgid "Every hour"
+msgstr "Каждый час"
+
+msgid "Every 6 hours"
+msgstr "Каждые 6 часов"
+
+msgid "Twice a day"
+msgstr "Два раза в день"
+
+msgid "Daily at 04:00"
+msgstr "Каждый день в 04:00"
+
+msgid "Keep cents"
+msgstr "Оставить копейки"
+
+msgid "Up to a whole number"
+msgstr "До целого"
+
+msgid "Up to tens"
+msgstr "До десятков"
+
+msgid "Ending in 90 (1 290)"
+msgstr "На 90 в конце (1 290)"
+
+msgid "Ending in .99"
+msgstr "На ,99 в конце"
+
+msgid "Ending in .90"
+msgstr "На ,90 в конце"
+
+msgid "New"
+msgstr "Новый"
+
+msgid "Updated"
+msgstr "Обновлён"
+
+msgid "Off sale"
+msgstr "Снят с продажи"
+
+msgid "Error"
+msgstr "Ошибка"
+
+msgid "No change"
+msgstr "Без изменений"
+
+msgid "Skipped"
+msgstr "Пропущен"
+
+msgid "Downloading the feed"
+msgstr "Скачиваем фид"
+
+msgid "Reading offers"
+msgstr "Читаем предложения"
+
+msgid "Updating products"
+msgstr "Обновляем товары"
+
+msgid "Checking removed offers"
+msgstr "Проверяем пропавшие предложения"
+
+msgid "Finishing"
+msgstr "Завершаем"
+
+msgid "Title"
+msgstr "Название"
+
+msgid "Description"
+msgstr "Описание"
+
+msgid "Photos"
+msgstr "Фото"
+
+msgid "Categories"
+msgstr "Категории"
+
+msgid "Attributes"
+msgstr "Атрибуты"
+
+msgid "Sale price"
+msgstr "Цена со скидкой"
+
+msgid "Stock"
+msgstr "Остаток"
+
+msgid "Variations"
+msgstr "Вариации"
+
+msgid "Visibility in store"
+msgstr "Видимость в магазине"
+
+msgid "Catalog visibility"
+msgstr "Видимость в каталоге"
+
+msgid "Product type"
+msgstr "Тип товара"
+
+msgid "never"
+msgstr "никогда"
+
+msgid "Failed"
+msgstr "Ошибка"
+
+msgid "Waiting in the queue"
+msgstr "Ждёт в очереди"
+
+msgid "Cancelled"
+msgstr "Отменён"
+
+msgid "Nothing would change"
+msgstr "Ничего не изменится"
+
+msgid "Everything was already up to date"
+msgstr "Всё уже было актуально"
+
+msgid "Try again"
+msgstr "Повторить"
+
+msgid "Demo access: you can run syncs and preview changes. Editing suppliers and prices is turned off."
+msgstr "Демо-доступ: можно запускать синхронизацию и смотреть изменения. Редактирование поставщиков и цен отключено."
+
+msgid "Read-only access."
+msgstr "Доступ только для просмотра."
+
+msgid "Queued"
+msgstr "В очереди"
+
+msgid "Running"
+msgstr "Идёт"
+
+msgid "Preview ready"
+msgstr "Отчёт готов"
+
+msgid "Done"
+msgstr "Готово"
+
+msgid "Dry run"
+msgstr "Сухой прогон"
+
+msgid "%d%% done"
+msgstr "Готово на %d%%"
+
+msgid "Overview"
+msgstr "Обзор"
+
+msgid "Suppliers"
+msgstr "Поставщики"
+
+msgid "Prices"
+msgstr "Цены"
+
+msgid "Runs"
+msgstr "Запуски"
+
+msgid "Settings"
+msgstr "Настройки"
+
+msgid "Open store"
+msgstr "Открыть магазин"
+
+msgid "No product changes in the last two weeks."
+msgstr "За две недели товары не менялись."
+
+msgid "%s changes in total"
+msgstr "Всего изменений: %s"
+
+msgid "Product changes per day"
+msgstr "Изменения товаров по дням"
+
+msgid "Day"
+msgstr "День"
+
+msgid "Catalog sync"
+msgstr "Синхронизация каталога"
+
+msgid "Prices, stock and new products from your suppliers, merged into one catalog."
+msgstr "Цены, остатки и новинки от ваших поставщиков в одном каталоге."
+
+msgid "Add supplier"
+msgstr "Добавить поставщика"
+
+msgid "Products kept in sync"
+msgstr "Товаров на синхронизации"
+
+msgid "Supplier offers"
+msgstr "Предложений поставщиков"
+
+msgid "Sold by several suppliers"
+msgstr "Есть у нескольких поставщиков"
+
+msgid "Out of stock / on order"
+msgstr "Нет в наличии / под заказ"
+
+msgid "Errors in the last 24 hours"
+msgstr "Ошибок за сутки"
+
+msgid "No suppliers yet"
+msgstr "Поставщиков пока нет"
+
+msgid "Add the first supplier"
+msgstr "Добавить первого поставщика"
+
+msgid "Connect a YML or XML feed, a CSV or Excel price list, a JSON API or a supplier website."
+msgstr "Подключите фид YML или XML, прайс CSV или Excel, JSON API или сайт поставщика."
+
+msgid "Last 14 days"
+msgstr "Последние 14 дней"
+
+msgid "Recent runs"
+msgstr "Последние запуски"
+
+msgid "All runs"
+msgstr "Все запуски"
+
+msgid "Runs will show up here."
+msgstr "Здесь появятся запуски."
+
+msgid "Remove %s"
+msgstr "Удалить %s"
+
+msgid "row"
+msgstr "строку"
+
+msgid "Add row"
+msgstr "Добавить строку"
+
+msgid "Prices saved. The next run of each supplier recalculates all of its products."
+msgstr "Цены сохранены. Следующий запуск каждого поставщика пересчитает все его товары."
+
+msgid "Any supplier"
+msgstr "Любой поставщик"
+
+msgid "Any category"
+msgstr "Любая категория"
+
+msgid "Retail price = purchase price in your currency + markup, never below the minimum margin, then rounded up. The most specific matching rule wins: supplier, then category, then price range."
+msgstr "Розничная цена = закупка в вашей валюте + наценка, не ниже минимальной маржи, с округлением вверх. Срабатывает самое точное правило: сначала поставщик, потом категория, потом диапазон цены."
+
+msgid "Markup rules"
+msgstr "Правила наценки"
+
+msgid "Rule"
+msgstr "Правило"
+
+msgid "Applies to"
+msgstr "Для чего"
+
+msgid "Cost range, %s"
+msgstr "Закупка, %s"
+
+msgid "Markup"
+msgstr "Наценка"
+
+msgid "Rounding"
+msgstr "Округление"
+
+msgid "Order"
+msgstr "Порядок"
+
+msgid "Everything else"
+msgstr "Всё остальное"
+
+msgid "Used when no rule matches"
+msgstr "Если не подошло ни одно правило"
+
+msgid "Add rule"
+msgstr "Добавить правило"
+
+msgid "Save prices"
+msgstr "Сохранить цены"
+
+msgid "Rule name"
+msgstr "Название правила"
+
+msgid "Supplier"
+msgstr "Поставщик"
+
+msgid "Category"
+msgstr "Категория"
+
+msgid "Cost from"
+msgstr "Закупка от"
+
+msgid "from"
+msgstr "от"
+
+msgid "Cost up to"
+msgstr "Закупка до"
+
+msgid "up to"
+msgstr "до"
+
+msgid "Move up"
+msgstr "Выше"
+
+msgid "Move down"
+msgstr "Ниже"
+
+msgid "Delete rule"
+msgstr "Удалить правило"
+
+msgid "Markup, %"
+msgstr "Наценка, %"
+
+msgid "% markup"
+msgstr "% наценка"
+
+msgid "Minimum margin, %"
+msgstr "Минимальная маржа, %"
+
+msgid "% min. margin"
+msgstr "% мин. маржа"
+
+msgid "Exchange rates"
+msgstr "Курсы валют"
+
+msgid "How much one unit of a supplier currency costs in %s. Update them when your bank rate moves."
+msgstr "Сколько стоит единица валюты поставщика в %s. Обновляйте, когда меняется курс вашего банка."
+
+msgid "Rate for %s"
+msgstr "Курс %s"
+
+msgid "Add a currency"
+msgstr "Добавить валюту"
+
+msgid "Choose…"
+msgstr "Выберите…"
+
+msgid "Try a price"
+msgstr "Проверить цену"
+
+msgid "Uses the rules on this screen, including unsaved edits."
+msgstr "Считает по правилам с этого экрана, включая несохранённые правки."
+
+msgid "Purchase price"
+msgstr "Закупочная цена"
+
+msgid "Currency"
+msgstr "Валюта"
+
+msgid "Any"
+msgstr "Любой"
+
+msgid "Supplier RRP (optional)"
+msgstr "РРЦ поставщика (необязательно)"
+
+msgid "Cost in store currency"
+msgstr "Закупка в валюте магазина"
+
+msgid "Margin"
+msgstr "Маржа"
+
+msgid "The markup was below the minimum margin, so the margin floor set the price."
+msgstr "Наценка оказалась ниже минимальной маржи, поэтому цену задала маржа."
+
+msgid "All changes"
+msgstr "Все изменения"
+
+msgid "Errors"
+msgstr "Ошибки"
+
+msgid "Run #%1$d, %2$s"
+msgstr "Запуск №%1$d, %2$s"
+
+msgid "Cancel run"
+msgstr "Отменить запуск"
+
+msgid "Apply these changes"
+msgstr "Применить изменения"
+
+msgid "If you sync now: %s."
+msgstr "Если запустить синхронизацию: %s."
+
+msgid "What would change"
+msgstr "Что изменится"
+
+msgid "What changed"
+msgstr "Что изменилось"
+
+msgid "Filter by change"
+msgstr "Фильтр по изменениям"
+
+msgid "Search products"
+msgstr "Поиск товаров"
+
+msgid "Search by product title"
+msgstr "Поиск по названию"
+
+msgid "No products match this search."
+msgstr "По такому запросу товаров нет."
+
+msgid "No product was created, changed or taken off sale in this run."
+msgstr "В этом запуске товары не создавались, не менялись и не снимались с продажи."
+
+msgid "Pages"
+msgstr "Страницы"
+
+msgid "Previous"
+msgstr "Назад"
+
+msgid "Page %1$d of %2$d"
+msgstr "Страница %1$d из %2$d"
+
+msgid "Next"
+msgstr "Дальше"
+
+msgid "Hide details"
+msgstr "Скрыть подробности"
+
+msgid "empty"
+msgstr "пусто"
+
+msgid "new text"
+msgstr "новый текст"
+
+msgid "Published"
+msgstr "Опубликован"
+
+msgid "Draft"
+msgstr "Черновик"
+
+msgid "changed"
+msgstr "изменены"
+
+msgid "Started by hand"
+msgstr "Вручную"
+
+msgid "On schedule"
+msgstr "По расписанию"
+
+msgid "WP-CLI"
+msgstr "WP-CLI"
+
+msgid "Every sync and dry run, with the list of products it changed."
+msgstr "Все синхронизации и сухие прогоны со списком изменённых товаров."
+
+msgid "All suppliers"
+msgstr "Все поставщики"
+
+msgid "No runs yet"
+msgstr "Запусков пока нет"
+
+msgid "Start a sync or a dry run from the overview."
+msgstr "Запустите синхронизацию или сухой прогон на странице обзора."
+
+msgid "Run"
+msgstr "Запуск"
+
+msgid "Result"
+msgstr "Результат"
+
+msgid "Started"
+msgstr "Начат"
+
+msgid "Took"
+msgstr "Длился"
+
+msgid "Status"
+msgstr "Статус"
+
+msgid "Newer"
+msgstr "Новее"
+
+msgid "Older"
+msgstr "Старше"
+
+msgid "Settings saved."
+msgstr "Настройки сохранены."
+
+msgid "Test message sent. Check the chat."
+msgstr "Тестовое сообщение отправлено. Проверьте чат."
+
+msgid "When suppliers run out"
+msgstr "Когда у поставщиков закончился товар"
+
+msgid "Product with zero stock at every supplier"
+msgstr "Товар, которого нет ни у одного поставщика"
+
+msgid "Keep it visible as out of stock"
+msgstr "Показывать как «нет в наличии»"
+
+msgid "Hide it from the catalog, keep the page"
+msgstr "Скрыть из каталога, страницу оставить"
+
+msgid "Move it to drafts"
+msgstr "Перевести в черновики"
+
+msgid "Sell \"on order\" when a supplier can deliver later"
+msgstr "Продавать «под заказ», если поставщик привезёт позже"
+
+msgid "In YML that is available=\"false\". Customers can still buy, and WooCommerce shows \"Available on backorder\"."
+msgstr "В YML это available=\"false\". Покупатель сможет оформить заказ, WooCommerce покажет «Доступен предзаказ»."
+
+msgid "Convert to WebP"
+msgstr "Конвертировать в WebP"
+
+msgid "Smaller files, faster pages. Every photo is downloaded once, even if several suppliers or products share it."
+msgstr "Файлы меньше, страницы быстрее. Каждое фото скачивается один раз, даже если оно общее у нескольких поставщиков или товаров."
+
+msgid "Quality, %"
+msgstr "Качество, %"
+
+msgid "Longest side, px (0 keeps the original)"
+msgstr "Длинная сторона, px (0 оставляет оригинал)"
+
+msgid "Reports"
+msgstr "Отчёты"
+
+msgid "A short summary after every scheduled or manual sync, with a link to the full log."
+msgstr "Короткая сводка после каждой синхронизации со ссылкой на полный журнал."
+
+msgid "E-mail"
+msgstr "E-mail"
+
+msgid "Telegram bot token"
+msgstr "Токен Telegram-бота"
+
+msgid "Create a bot with @BotFather."
+msgstr "Создайте бота через @BotFather."
+
+msgid "Chat ID"
+msgstr "ID чата"
+
+msgid "A person, a group or a channel the bot can post to."
+msgstr "Человек, группа или канал, куда бот может писать."
+
+msgid "Send a test message"
+msgstr "Отправить тестовое сообщение"
+
+msgid "Only report runs with errors"
+msgstr "Сообщать только о запусках с ошибками"
+
+msgid "Performance and logs"
+msgstr "Производительность и журнал"
+
+msgid "Seconds per background step"
+msgstr "Секунд на один фоновый шаг"
+
+msgid "Large feeds are processed in short steps so the server never hits its time limit. Lower it on weak shared hosting."
+msgstr "Большие фиды обрабатываются короткими шагами, чтобы сервер не упирался в лимит времени. На слабом хостинге уменьшите значение."
+
+msgid "Keep run logs, days"
+msgstr "Хранить журнал, дней"
+
+msgid "Background jobs in WooCommerce › Status › Scheduled actions"
+msgstr "Фоновые задачи в WooCommerce › Статус › Запланированные действия"
+
+msgid "Save settings"
+msgstr "Сохранить настройки"
+
+msgid "Product title"
+msgstr "Название товара"
+
+msgid "Manufacturer SKU"
+msgstr "Артикул производителя"
+
+msgid "EAN / barcode"
+msgstr "EAN / штрихкод"
+
+msgid "Stock quantity"
+msgstr "Остаток"
+
+msgid "Available flag"
+msgstr "Признак наличия"
+
+msgid "Recommended retail price"
+msgstr "Рекомендованная цена"
+
+msgid "Brand"
+msgstr "Бренд"
+
+msgid "Model (joins variations)"
+msgstr "Модель (объединяет вариации)"
+
+msgid "Supplier item ID"
+msgstr "ID товара у поставщика"
+
+msgid "Supplier product page"
+msgstr "Страница товара у поставщика"
+
+msgid "Links to products on a listing page"
+msgstr "Ссылки на товары в списке"
+
+msgid "Link to the next listing page"
+msgstr "Ссылка на следующую страницу списка"
+
+msgid "Old price"
+msgstr "Старая цена"
+
+msgid "EAN"
+msgstr "EAN"
+
+msgid "Breadcrumbs"
+msgstr "Хлебные крошки"
+
+msgid "Specification rows"
+msgstr "Строки характеристик"
+
+msgid "Name cell inside a row"
+msgstr "Ячейка с названием"
+
+msgid "Value cell inside a row"
+msgstr "Ячейка со значением"
+
+msgid "New supplier"
+msgstr "Новый поставщик"
+
+msgid "Point to the feed, check the preview, then save."
+msgstr "Укажите фид, проверьте предпросмотр и сохраните."
+
+msgid "Name"
+msgstr "Название"
+
+msgid "Catalog format"
+msgstr "Формат каталога"
+
+msgid "Prices are in"
+msgstr "Цены в валюте"
+
+msgid "Used when a row has no currency of its own. Exchange rates are on the Prices screen."
+msgstr "Используется, если у строки нет своей валюты. Курсы задаются на экране «Цены»."
+
+msgid "Sync automatically"
+msgstr "Синхронизировать автоматически"
+
+msgid "Active"
+msgstr "Включён"
+
+msgid "A paused supplier keeps its products but skips scheduled runs."
+msgstr "Товары приостановленного поставщика остаются, но запуски по расписанию пропускаются."
+
+msgid "Where the catalog is"
+msgstr "Где лежит каталог"
+
+msgid "Feed URL"
+msgstr "Адрес фида"
+
+msgid "Request headers"
+msgstr "Заголовки запроса"
+
+msgid "For APIs that need a key, for example Authorization: Bearer …. Values are stored on the server and never shown again."
+msgstr "Для API с ключом, например Authorization: Bearer …. Значения хранятся на сервере и больше не показываются."
+
+msgid "Header"
+msgstr "Заголовок"
+
+msgid "Value"
+msgstr "Значение"
+
+msgid "Reading the feed"
+msgstr "Чтение фида"
+
+msgid "YML is read as Yandex Market describes it: offers, categories, params, pictures and group_id for variations. Stock is taken from count, quantity or outlets."
+msgstr "YML читается по правилам Яндекс Маркета: offers, categories, param, picture и group_id для вариаций. Остаток берётся из count, quantity или outlets."
+
+msgid "Attributes and categories"
+msgstr "Атрибуты и категории"
+
+msgid "Rename attributes"
+msgstr "Переименование атрибутов"
+
+msgid "Match supplier names to your store attributes, e.g. Colour to Color. Leave the right side empty to drop an attribute."
+msgstr "Сопоставьте названия поставщика с атрибутами магазина, например «Расцветка» с «Цвет». Оставьте правую часть пустой, чтобы не импортировать атрибут."
+
+msgid "Supplier attribute"
+msgstr "Атрибут поставщика"
+
+msgid "Store attribute"
+msgstr "Атрибут магазина"
+
+msgid "Import attributes that are not in the list"
+msgstr "Импортировать атрибуты, которых нет в списке"
+
+msgid "Category mapping"
+msgstr "Сопоставление категорий"
+
+msgid "Supplier category (ID or path such as Power > Chargers) to a store category. Set the store side to 0 to skip that category."
+msgstr "Категория поставщика (ID или путь вида «Питание > Зарядки») и категория магазина. Укажите 0 справа, чтобы пропустить категорию."
+
+msgid "Supplier category"
+msgstr "Категория поставщика"
+
+msgid "Store category"
+msgstr "Категория магазина"
+
+msgid "Categories that are not mapped"
+msgstr "Несопоставленные категории"
+
+msgid "Create them in the store"
+msgstr "Создавать в магазине"
+
+msgid "Do not import those products"
+msgstr "Не импортировать такие товары"
+
+msgid "Put into \"%s\""
+msgstr "Класть в «%s»"
+
+msgid "Create new categories under"
+msgstr "Создавать новые категории внутри"
+
+msgid "Store root"
+msgstr "Корень магазина"
+
+msgid "Updates and safety"
+msgstr "Обновления и защита"
+
+msgid "Fields this supplier may change on products that already exist. New products always get everything."
+msgstr "Поля, которые поставщик может менять у существующих товаров. Новые товары получают всё."
+
+msgid "Stop if more than this share of offers disappears at once, %"
+msgstr "Остановиться, если за раз пропадёт больше предложений, %"
+
+msgid "A broken or half-empty feed should not take your catalog off sale. Such a run logs a warning and removes nothing."
+msgstr "Сломанный или полупустой фид не должен снять каталог с продажи. Такой запуск запишет предупреждение и ничего не уберёт."
+
+msgid "Saved"
+msgstr "Сохранено"
+
+msgid "Delete supplier"
+msgstr "Удалить поставщика"
+
+msgid "Save changes"
+msgstr "Сохранить изменения"
+
+msgid "Create supplier"
+msgstr "Создать поставщика"
+
+msgid "Feed preview"
+msgstr "Предпросмотр фида"
+
+msgid "Read again"
+msgstr "Прочитать заново"
+
+msgid "Read first rows"
+msgstr "Прочитать первые строки"
+
+msgid "The preview downloads the feed, so it is available to store managers only."
+msgstr "Предпросмотр скачивает фид, поэтому доступен только менеджерам магазина."
+
+msgid "Downloads the feed with the settings on the left, unsaved ones included, and shows what the first products would look like."
+msgstr "Скачивает фид с настройками слева, включая несохранённые, и показывает, какими получатся первые товары."
+
+msgid "Downloading the feed…"
+msgstr "Скачиваем фид…"
+
+msgid "Delete this supplier?"
+msgstr "Удалить поставщика?"
+
+msgid "Its products stay in the store. They just stop getting price and stock updates from this supplier."
+msgstr "Его товары останутся в магазине, просто перестанут получать от него цены и остатки."
+
+msgid "Keep supplier"
+msgstr "Оставить"
+
+msgid "Separator"
+msgstr "Разделитель"
+
+msgid "Detect"
+msgstr "Определить"
+
+msgid "Semicolon ;"
+msgstr "Точка с запятой ;"
+
+msgid "Comma ,"
+msgstr "Запятая ,"
+
+msgid "Tab"
+msgstr "Табуляция"
+
+msgid "Pipe |"
+msgstr "Вертикальная черта |"
+
+msgid "Encoding"
+msgstr "Кодировка"
+
+msgid "Decimal mark in prices"
+msgstr "Разделитель дробной части"
+
+msgid "Path to the product list"
+msgstr "Путь к списку товаров"
+
+msgid "Object with attributes"
+msgstr "Объект с атрибутами"
+
+msgid "Product element"
+msgstr "Элемент товара"
+
+msgid "Attribute elements (XPath)"
+msgstr "Элементы атрибутов (XPath)"
+
+msgid "Where each field is (XPath inside the product element)"
+msgstr "Где лежит каждое поле (XPath внутри элемента товара)"
+
+msgid "Which column holds what"
+msgstr "Что в какой колонке"
+
+msgid "Read the first rows to pick columns from a list instead of typing their names."
+msgstr "Прочитайте первые строки, чтобы выбирать колонки из списка, а не вписывать названия."
+
+msgid "Not in the feed"
+msgstr "Нет в фиде"
+
+msgid "Columns that become attributes"
+msgstr "Колонки, которые станут атрибутами"
+
+msgid "Column names, comma separated"
+msgstr "Названия колонок через запятую"
+
+msgid "Listing pages to start from, one per line"
+msgstr "Страницы каталога для старта, по одной на строку"
+
+msgid "Listing pages, max"
+msgstr "Страниц каталога, максимум"
+
+msgid "Products, max"
+msgstr "Товаров, максимум"
+
+msgid "Pause between pages, ms"
+msgstr "Пауза между страницами, мс"
+
+msgid "The crawler stays on the same site, follows robots.txt and identifies itself in the User-Agent."
+msgstr "Парсер не уходит с сайта поставщика, соблюдает robots.txt и представляется в User-Agent."
+
+msgid "CSS selectors. Add @attribute to read an attribute instead of text, for example .gallery img@src."
+msgstr "CSS-селекторы. Допишите @атрибут, чтобы брать атрибут вместо текста, например .gallery img@src."
+
+msgid "No products found with these settings."
+msgstr "С такими настройками товары не найдены."
+
+msgid "no SKU or EAN"
+msgstr "нет артикула и EAN"
+
+msgid "Raw rows as the supplier sent them"
+msgstr "Строки в том виде, как их прислал поставщик"
+
+msgid "%d in stock"
+msgstr "%d в наличии"
+
+msgid "on order"
+msgstr "под заказ"
+
+msgid "out of stock"
+msgstr "нет в наличии"
+
+msgid "in stock"
+msgstr "в наличии"
+
+msgid "Paused"
+msgstr "Приостановлен"
+
+msgid "%s offers"
+msgstr "Предложений: %s"
+
+msgid "Next run %s"
+msgstr "Следующий запуск %s"
+
+msgid "Preview changes"
+msgstr "Что изменится"
+
+msgid "Sync now"
+msgstr "Синхронизировать"
+
+msgid "Not synced yet"
+msgstr "Ещё не синхронизирован"
+
+msgid "Where each supplier publishes its catalog and how its columns map to your products."
+msgstr "Где каждый поставщик публикует каталог и как его колонки ложатся на ваши товары."
+
+msgid "Add a supplier to start importing its catalog."
+msgstr "Добавьте поставщика, чтобы начать импорт каталога."
+
+msgid "%d second"
+msgid_plural "%d seconds"
+msgstr[0] "%d секунда"
+msgstr[1] "%d секунды"
+msgstr[2] "%d секунд"
+
+msgid "%d minute"
+msgid_plural "%d minutes"
+msgstr[0] "%d минута"
+msgstr[1] "%d минуты"
+msgstr[2] "%d минут"
+
+msgid "%d new"
+msgid_plural "%d new"
+msgstr[0] "%d новый"
+msgstr[1] "%d новых"
+msgstr[2] "%d новых"
+
+msgid "%d updated"
+msgid_plural "%d updated"
+msgstr[0] "%d обновлён"
+msgstr[1] "%d обновлено"
+msgstr[2] "%d обновлено"
+
+msgid "%d taken off sale"
+msgid_plural "%d taken off sale"
+msgstr[0] "%d снят с продажи"
+msgstr[1] "%d снято с продажи"
+msgstr[2] "%d снято с продажи"
+
+msgid "%d error"
+msgid_plural "%d errors"
+msgstr[0] "%d ошибка"
+msgstr[1] "%d ошибки"
+msgstr[2] "%d ошибок"
+
+msgid "%d run in progress. This page refreshes on its own."
+msgid_plural "%d runs in progress. This page refreshes on its own."
+msgstr[0] "Идёт %d запуск. Страница обновляется сама."
+msgstr[1] "Идёт %d запуска. Страница обновляется сама."
+msgstr[2] "Идёт %d запусков. Страница обновляется сама."
+
+msgid "%d offer read so far."
+msgid_plural "%d offers read so far."
+msgstr[0] "Прочитано %d предложение."
+msgstr[1] "Прочитано %d предложения."
+msgstr[2] "Прочитано %d предложений."
+
+msgid "%d field"
+msgid_plural "%d fields"
+msgstr[0] "%d поле"
+msgstr[1] "%d поля"
+msgstr[2] "%d полей"
+
+msgid "%d photo"
+msgid_plural "%d photos"
+msgstr[0] "%d фото"
+msgstr[1] "%d фото"
+msgstr[2] "%d фото"

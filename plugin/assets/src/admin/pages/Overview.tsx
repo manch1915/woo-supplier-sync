@@ -1,5 +1,5 @@
 import { Button } from '@wordpress/components';
-import { __, sprintf } from '@wordpress/i18n';
+import { __, _n, sprintf } from '@wordpress/i18n';
 import { api } from '../api';
 import { isActive } from '../actions';
 import {
@@ -258,8 +258,11 @@ export function Overview( {
 			{ d && d.active_runs > 0 && (
 				<p className="wss-muted wss-footnote">
 					{ sprintf(
-						/* translators: %d: number of runs. */ __(
-							'%d run(s) in progress. This page refreshes on its own.',
+						/* translators: %d: number of runs. */
+						_n(
+							'%d run in progress. This page refreshes on its own.',
+							'%d runs in progress. This page refreshes on its own.',
+							d.active_runs,
 							'woo-supplier-sync'
 						),
 						d.active_runs

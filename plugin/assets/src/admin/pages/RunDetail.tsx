@@ -143,10 +143,12 @@ export function RunDetail( {
 				description={
 					<>
 						{ r.dry_run && <DryRunTag /> }
-						<StatusBadge run={ r } />{ ' ' }
-						{ dateTime( r.started_at ?? r.created_at ) }
-						{ r.user_name && ` · ${ r.user_name }` }
-						{ r.finished_at && ` · ${ duration( r ) }` }
+						<StatusBadge run={ r } />
+						<span>
+							{ dateTime( r.started_at ?? r.created_at ) }
+						</span>
+						{ r.user_name && <span>{ r.user_name }</span> }
+						{ r.finished_at && <span>{ duration( r ) }</span> }
 					</>
 				}
 				actions={
@@ -424,8 +426,12 @@ function fieldLabel( path: string ): string {
 		return parts.slice( 1 ).join( '.' );
 	}
 	if ( parts[ 0 ] === 'variations' && parts.length >= 3 ) {
-		const tail = parts.slice( 3 ).join( '.' );
-		return `${ parts[ 1 ] } · ${ FIELD_LABELS[ parts[ 2 ]! ] ?? parts[ 2 ] }${ tail ? ' ' + tail : '' }`;
+		// variations.SKU.attributes.Color reads as "SKU · Color".
+		const field =
+			parts[ 2 ] === 'attributes' && parts.length > 3
+				? parts.slice( 3 ).join( '.' )
+				: ( FIELD_LABELS[ parts[ 2 ]! ] ?? parts[ 2 ] );
+		return `${ parts[ 1 ] } · ${ field }`;
 	}
 	return head;
 }

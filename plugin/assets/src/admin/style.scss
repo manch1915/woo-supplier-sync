@@ -24,6 +24,14 @@
 
 	margin-left: -20px;
 	color: var(--wss-ink);
+
+	// WordPress components print control labels in small caps; plain labels read easier here.
+	.components-base-control__label,
+	.components-input-control__label {
+		font-size: 13px;
+		font-weight: 500;
+		text-transform: none;
+	}
 	font-size: 13px;
 	line-height: 1.5;
 	font-variant-numeric: tabular-nums;
@@ -172,7 +180,7 @@
 	display: flex;
 	flex-wrap: wrap;
 	align-items: center;
-	gap: 6px;
+	gap: 6px 14px;
 	max-width: 72ch;
 	margin: 6px 0 0;
 	color: var(--wss-ink-2);
@@ -1260,12 +1268,23 @@
 	&__thumb {
 		display: grid;
 		place-items: center;
+		align-content: center;
 		width: 36px;
-		height: 36px;
+		height: 44px;
 		border-radius: 4px;
-		background: var(--wss-line-soft);
+		background: var(--wss-accent-soft);
 		font-size: 11px;
-		color: var(--wss-ink-2);
+		line-height: 1;
+		color: var(--wss-accent-strong);
+
+		svg {
+			fill: currentColor;
+		}
+
+		&.is-empty {
+			background: var(--wss-line-soft);
+			color: var(--wss-ink-2);
+		}
 	}
 
 	&__name {
@@ -1279,6 +1298,12 @@
 		font-size: 12px;
 		color: var(--wss-ink-2);
 		overflow-wrap: anywhere;
+	}
+
+	&__category {
+		margin-left: 8px;
+		padding-left: 8px;
+		border-left: 1px solid var(--wss-line);
 	}
 
 	&__price {
@@ -1372,17 +1397,17 @@
 	}
 }
 
-.wss-range,
-.wss-markup {
+.wss-range {
 	display: grid;
 	gap: 6px;
 
-	label {
-		display: flex;
-		align-items: center;
-		gap: 6px;
-		white-space: nowrap;
+	.wss-input.is-num {
+		width: 11ch;
 	}
+}
+
+.wss-rule-table select.wss-input {
+	min-width: 190px;
 }
 
 .wss-rates {

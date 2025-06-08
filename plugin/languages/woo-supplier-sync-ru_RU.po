@@ -431,8 +431,11 @@ msgstr "Для чего"
 msgid "Cost range, %s"
 msgstr "Закупка, %s"
 
-msgid "Markup"
-msgstr "Наценка"
+msgid "Markup, %"
+msgstr "Наценка, %"
+
+msgid "Minimum margin, %"
+msgstr "Минимальная маржа, %"
 
 msgid "Rounding"
 msgstr "Округление"
@@ -481,18 +484,6 @@ msgstr "Ниже"
 
 msgid "Delete rule"
 msgstr "Удалить правило"
-
-msgid "Markup, %"
-msgstr "Наценка, %"
-
-msgid "% markup"
-msgstr "% наценка"
-
-msgid "Minimum margin, %"
-msgstr "Минимальная маржа, %"
-
-msgid "% min. margin"
-msgstr "% мин. маржа"
 
 msgid "Exchange rates"
 msgstr "Курсы валют"

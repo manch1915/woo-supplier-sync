@@ -9,7 +9,8 @@ import {
 	ToggleControl,
 } from '@wordpress/components';
 import { useEffect, useState } from '@wordpress/element';
-import { __, sprintf } from '@wordpress/i18n';
+import { __, _n, sprintf } from '@wordpress/i18n';
+import { Icon, image } from '@wordpress/icons';
 import { api } from '../api';
 import {
 	ErrorNotice,
@@ -1389,12 +1390,20 @@ function PreviewResult( {
 					return (
 						<li key={ index } className="wss-preview__item">
 							<div
-								className="wss-preview__thumb"
-								aria-hidden="true"
+								className={ `wss-preview__thumb${ images.length ? '' : ' is-empty' }` }
+								title={ sprintf(
+									/* translators: %d: number of photos. */
+									_n(
+										'%d photo',
+										'%d photos',
+										images.length,
+										'woo-supplier-sync'
+									),
+									images.length
+								) }
 							>
-								{ images[ 0 ] ? (
-									<span>{ images.length }</span>
-								) : null }
+								<Icon icon={ image } size={ 20 } />
+								<span>{ images.length }</span>
 							</div>
 							<div className="wss-preview__body">
 								<p className="wss-preview__name">
@@ -1409,7 +1418,7 @@ function PreviewResult( {
 											'woo-supplier-sync'
 										) }
 									{ offer.category_path ? (
-										<span>
+										<span className="wss-preview__category">
 											{ ' ' }
 											{ String( offer.category_path ) }
 										</span>

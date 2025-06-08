@@ -188,7 +188,13 @@ export function Rules() {
 										</th>
 										<th scope="col">
 											{ __(
-												'Markup',
+												'Markup, %',
+												'woo-supplier-sync'
+											) }
+										</th>
+										<th scope="col">
+											{ __(
+												'Minimum margin, %',
 												'woo-supplier-sync'
 											) }
 										</th>
@@ -248,20 +254,18 @@ export function Rules() {
 											) }
 										</td>
 										<td />
-										<td>
-											<MarkupFields
-												rule={ draft.default_rule }
-												onChange={ ( changes ) =>
-													setDraft( {
-														...draft,
-														default_rule: {
-															...draft.default_rule,
-															...changes,
-														},
-													} )
-												}
-											/>
-										</td>
+										<MarkupCells
+											rule={ draft.default_rule }
+											onChange={ ( changes ) =>
+												setDraft( {
+													...draft,
+													default_rule: {
+														...draft.default_rule,
+														...changes,
+													},
+												} )
+											}
+										/>
 										<td>
 											<NativeSelect
 												label={ __(
@@ -407,9 +411,7 @@ function RuleRow( {
 					/>
 				</span>
 			</td>
-			<td>
-				<MarkupFields rule={ rule } onChange={ onChange } />
-			</td>
+			<MarkupCells rule={ rule } onChange={ onChange } />
 			<td>
 				<NativeSelect
 					label={ __( 'Rounding', 'woo-supplier-sync' ) }
@@ -445,7 +447,7 @@ function RuleRow( {
 	);
 }
 
-function MarkupFields( {
+function MarkupCells( {
 	rule,
 	onChange,
 }: {
@@ -453,20 +455,24 @@ function MarkupFields( {
 	onChange: ( changes: Partial< PriceRule > ) => void;
 } ) {
 	return (
-		<span className="wss-markup">
-			<NumberField
-				label={ __( 'Markup, %', 'woo-supplier-sync' ) }
-				suffix={ __( '% markup', 'woo-supplier-sync' ) }
-				value={ rule.markup_percent ?? 0 }
-				onChange={ ( v ) => onChange( { markup_percent: v ?? 0 } ) }
-			/>
-			<NumberField
-				label={ __( 'Minimum margin, %', 'woo-supplier-sync' ) }
-				suffix={ __( '% min. margin', 'woo-supplier-sync' ) }
-				value={ rule.min_margin_percent ?? 0 }
-				onChange={ ( v ) => onChange( { min_margin_percent: v ?? 0 } ) }
-			/>
-		</span>
+		<>
+			<td>
+				<NumberField
+					label={ __( 'Markup, %', 'woo-supplier-sync' ) }
+					value={ rule.markup_percent ?? 0 }
+					onChange={ ( v ) => onChange( { markup_percent: v ?? 0 } ) }
+				/>
+			</td>
+			<td>
+				<NumberField
+					label={ __( 'Minimum margin, %', 'woo-supplier-sync' ) }
+					value={ rule.min_margin_percent ?? 0 }
+					onChange={ ( v ) =>
+						onChange( { min_margin_percent: v ?? 0 } )
+					}
+				/>
+			</td>
+		</>
 	);
 }
 

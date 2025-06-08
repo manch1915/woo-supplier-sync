@@ -430,7 +430,10 @@ msgstr ""
 msgid "Cost range, %s"
 msgstr ""
 
-msgid "Markup"
+msgid "Markup, %"
+msgstr ""
+
+msgid "Minimum margin, %"
 msgstr ""
 
 msgid "Rounding"
@@ -479,18 +482,6 @@ msgid "Move down"
 msgstr ""
 
 msgid "Delete rule"
-msgstr ""
-
-msgid "Markup, %"
-msgstr ""
-
-msgid "% markup"
-msgstr ""
-
-msgid "Minimum margin, %"
-msgstr ""
-
-msgid "% min. margin"
 msgstr ""
 
 msgid "Exchange rates"

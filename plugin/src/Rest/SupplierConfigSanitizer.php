@@ -113,7 +113,7 @@ final class SupplierConfigSanitizer {
 	private function headers( array $headers, ?Supplier $existing, string $url ): array {
 		$same_origin = null !== $existing && self::origin( $existing->source_url() ) === self::origin( $url );
 		$stored      = $same_origin ? (array) ( $existing->config['source']['headers'] ?? [] ) : [];
-		$clean  = [];
+		$clean       = [];
 		foreach ( $headers as $name => $value ) {
 			$name = (string) preg_replace( '/[^A-Za-z0-9-]/', '', (string) $name );
 			if ( '' === $name ) {

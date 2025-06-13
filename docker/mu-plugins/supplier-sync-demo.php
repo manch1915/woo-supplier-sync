@@ -67,3 +67,16 @@ add_filter(
 		return $message . '<p class="message">' . esc_html( sprintf( 'Demo login: %s', $hint ) ) . '</p>';
 	}
 );
+
+// The catalog template puts the core price slider into a 260px sidebar.
+add_action(
+	'wp_enqueue_scripts',
+	static function (): void {
+		wp_register_style( 'supplier-sync-demo', false, [], '1' );
+		wp_enqueue_style( 'supplier-sync-demo' );
+		wp_add_inline_style(
+			'supplier-sync-demo',
+			'.wss-demo-filters{min-width:0}.wss-demo-filters .wc-block-product-filter-price-slider__content{grid-template-columns:minmax(0,1fr) 0 minmax(0,1fr)}.wss-demo-filters .wc-block-product-filter-price-slider__content input:not([type=range]){width:100%;min-width:0;box-sizing:border-box}@media (max-width:781px){.wss-demo-filters{flex-basis:100%!important}}'
+		);
+	}
+);

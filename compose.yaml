@@ -40,11 +40,12 @@ services:
       timeout: 5s
       retries: 30
 
-  # Builds the admin app and storefront scripts into plugin/assets/build.
+  # Builds the admin app and storefront scripts into plugin/assets/build once.
+  # To rebuild after changing assets/src: docker compose run --rm -e FORCE=1 assets
   assets:
     image: node:22-alpine
     working_dir: /plugin
-    command: sh -c "npm ci --no-audit --no-fund && npm run build"
+    command: sh -c "if [ -z \"$$FORCE\" ] && [ -f assets/build/admin/admin.asset.php ] && [ -f assets/build/blocks/compare-bar/view.asset.php ]; then echo 'Assets already built'; else npm ci --no-audit --no-fund && npm run build; fi"
     volumes:
       - ./plugin:/plugin
       - node_modules:/plugin/node_modules

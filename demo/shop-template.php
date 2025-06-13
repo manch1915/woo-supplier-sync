@@ -5,9 +5,10 @@
  * Run with: wp eval-file /demo/shop-template.php
  *
  * @package SupplierSyncDemo
+ *
+ * No strict_types here: wp eval-file runs the file through eval().
  */
 
-declare(strict_types=1);
 
 $supplier_sync_attribute = static function ( string $label ): int {
 	foreach ( wc_get_attribute_taxonomies() as $attribute ) {

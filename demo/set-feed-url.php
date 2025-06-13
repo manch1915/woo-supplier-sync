@@ -4,9 +4,9 @@
  * Usage: wp eval-file /demo/set-feed-url.php "Nordline" "http://feeds/nordline/catalog.yml"
  *
  * @package SupplierSyncDemo
+ *
+ * No strict_types here: wp eval-file runs the file through eval().
  */
-
-declare(strict_types=1);
 
 use SupplierSync\Domain\Supplier;
 use SupplierSync\Infrastructure\Persistence\SupplierRepository;

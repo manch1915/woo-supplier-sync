@@ -26,6 +26,18 @@ Other things it handles:
 
 ![Dry run: the cable that left the feed, the price drop on headphones and a new colour, before anything is written](docs/screenshots/dry-run.png)
 
+![Supplier editor: column mapping on the left, the first rows of the price list with retail prices on the right](docs/screenshots/supplier-editor.png)
+
+![Price rules with the calculator that uses unsaved edits](docs/screenshots/prices.png)
+
+![Storefront comparison: three products, rows that differ are highlighted](docs/screenshots/compare.png)
+
+<p>
+  <img src="docs/screenshots/overview-mobile.png" alt="Overview on a phone" width="260">
+  <img src="docs/screenshots/storefront-mobile.png" alt="Catalog on a phone" width="260">
+  <img src="docs/screenshots/compare-mobile.png" alt="Comparison on a phone" width="260">
+</p>
+
 ## Try it
 
 You need Docker. One command starts WordPress 7, WooCommerce 11, the plugin and three made-up suppliers:

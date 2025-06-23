@@ -5,6 +5,7 @@ parameters:
 	level: 6
 	paths:
 		- woo-supplier-sync.php
+		- uninstall.php
 		- src
 	scanFiles:
 		- tests/stubs/action-scheduler.php
@@ -14,3 +15,9 @@ parameters:
 	bootstrapFiles:
 		- tests/phpstan-bootstrap.php
 	treatPhpDocTypesAsCertain: false
+	ignoreErrors:
+		# Built by npm; CI analyses the PHP without running the JS build.
+		-
+			identifier: require.fileNotFound
+			path: src/Admin/AdminPage.php
+			reportUnmatched: false

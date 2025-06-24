@@ -45,7 +45,7 @@ final class SyncPipelineTest extends \WP_UnitTestCase {
 	public function test_first_run_creates_products_and_the_second_changes_nothing(): void {
 		$alpha = $this->supplier( 'Alpha', 'yml', 'alpha.yml' );
 
-		$first = $this->run( $alpha );
+		$first = $this->sync( $alpha );
 		$this->assertSame( Run::COMPLETED, $first->status, (string) $first->error );
 		$this->assertSame( 3, $first->stats['created'] ?? 0, 'Two simple products and one variable product.' );
 
@@ -63,17 +63,17 @@ final class SyncPipelineTest extends \WP_UnitTestCase {
 		$this->assertSame( 'Echo buds', $parent->get_name() );
 		$this->assertCount( 2, $parent->get_children() );
 
-		$second = $this->run( $alpha );
+		$second = $this->sync( $alpha );
 		$this->assertSame( 0, ( $second->stats['created'] ?? 0 ) + ( $second->stats['updated'] ?? 0 ) );
 		$this->assertSame( 3, $second->stats['unchanged'] ?? 0 );
 	}
 
 	public function test_dry_run_reports_changes_without_touching_products(): void {
 		$alpha = $this->supplier( 'Alpha', 'yml', 'alpha.yml' );
-		$this->run( $alpha );
+		$this->sync( $alpha );
 
 		$alpha = $this->repoint( $alpha, 'alpha-v2.yml' );
-		$dry   = $this->run( $alpha, true );
+		$dry   = $this->sync( $alpha, true );
 
 		$this->assertSame( 1, $dry->stats['updated'] ?? 0, 'The speaker got cheaper.' );
 		$this->assertSame( 1, $dry->stats['unpublished'] ?? 0, 'The cable left the feed.' );
@@ -85,7 +85,7 @@ final class SyncPipelineTest extends \WP_UnitTestCase {
 	}
 
 	public function test_offers_merge_by_ean_and_the_cheapest_supplier_sets_the_price(): void {
-		$this->run( $this->supplier( 'Alpha', 'yml', 'alpha.yml' ) );
+		$this->sync( $this->supplier( 'Alpha', 'yml', 'alpha.yml' ) );
 		$beta = $this->supplier(
 			'Beta',
 			'csv',
@@ -101,7 +101,7 @@ final class SyncPipelineTest extends \WP_UnitTestCase {
 			]
 		);
 
-		$run = $this->run( $beta );
+		$run = $this->sync( $beta );
 		$this->assertSame( 1, $run->stats['created'] ?? 0 );
 		$this->assertSame( 1, $run->stats['updated'] ?? 0 );
 
@@ -113,9 +113,9 @@ final class SyncPipelineTest extends \WP_UnitTestCase {
 
 	public function test_offer_missing_from_the_feed_takes_the_product_off_sale(): void {
 		$alpha = $this->supplier( 'Alpha', 'yml', 'alpha.yml', [], 100 );
-		$this->run( $alpha );
+		$this->sync( $alpha );
 
-		$run = $this->run( $this->repoint( $alpha, 'alpha-v2.yml' ) );
+		$run = $this->sync( $this->repoint( $alpha, 'alpha-v2.yml' ) );
 
 		$this->assertSame( 1, $run->stats['unpublished'] ?? 0 );
 		$cable = wc_get_product( wc_get_product_id_by_sku( 'ECHO-CBL' ) );
@@ -125,9 +125,9 @@ final class SyncPipelineTest extends \WP_UnitTestCase {
 
 	public function test_safety_brake_stops_mass_removal(): void {
 		$alpha = $this->supplier( 'Alpha', 'yml', 'alpha.yml', [], 10 );
-		$this->run( $alpha );
+		$this->sync( $alpha );
 
-		$run = $this->run( $this->repoint( $alpha, 'alpha-v2.yml' ) );
+		$run = $this->sync( $this->repoint( $alpha, 'alpha-v2.yml' ) );
 
 		$this->assertSame( 0, $run->stats['unpublished'] ?? 0 );
 		$this->assertSame( 'publish', get_post_status( wc_get_product_id_by_sku( 'ECHO-CBL' ) ) );
@@ -166,7 +166,7 @@ final class SyncPipelineTest extends \WP_UnitTestCase {
 		return $id;
 	}
 
-	private function run( Supplier $supplier, bool $dry_run = false ): Run {
+	private function sync( Supplier $supplier, bool $dry_run = false ): Run {
 		$service = Plugin::container()->get( RunService::class );
 		$run     = $service->start( $supplier, $dry_run, 'cli' );
 		return $service->run_now( $run->id, static function (): void {} );

@@ -51,7 +51,7 @@ final class SyncPipelineTest extends \WP_UnitTestCase {
 
 		$speaker = wc_get_product( wc_get_product_id_by_sku( 'ECHO-1' ) );
 		$this->assertInstanceOf( \WC_Product_Simple::class, $speaker );
-		$this->assertSame( '150', $speaker->get_regular_price() );
+		$this->assertSame( '150.00', $speaker->get_regular_price() );
 		$this->assertSame( 4, $speaker->get_stock_quantity() );
 		$this->assertSame( '4000000000017', $speaker->get_global_unique_id() );
 		$this->assertSame( [ 'Speakers' ], wp_list_pluck( get_the_terms( $speaker->get_id(), 'product_cat' ), 'name' ) );
@@ -75,13 +75,13 @@ final class SyncPipelineTest extends \WP_UnitTestCase {
 		$alpha = $this->repoint( $alpha, 'alpha-v2.yml' );
 		$dry   = $this->sync( $alpha, true );
 
-		$this->assertSame( 1, $dry->stats['updated'] ?? 0, 'The speaker got cheaper.' );
+		$updated = Plugin::container()->get( RunRepository::class )->items( $dry->id, 'updated', '', 10, 0 );
+		$this->assertSame( 1, $dry->stats['updated'] ?? 0, 'Only the speaker got cheaper: ' . wp_json_encode( $updated['items'] ) );
 		$this->assertSame( 1, $dry->stats['unpublished'] ?? 0, 'The cable left the feed.' );
-		$this->assertSame( '150', wc_get_product( wc_get_product_id_by_sku( 'ECHO-1' ) )->get_regular_price() );
+		$this->assertSame( '150.00', wc_get_product( wc_get_product_id_by_sku( 'ECHO-1' ) )->get_regular_price() );
 		$this->assertSame( 'publish', get_post_status( wc_get_product_id_by_sku( 'ECHO-CBL' ) ) );
 
-		$items = Plugin::container()->get( RunRepository::class )->items( $dry->id, 'updated', '', 10, 0 );
-		$this->assertSame( [ '150', 135.0 ], $items['items'][0]['changes']['regular_price'] );
+		$this->assertSame( [ '150.00', 135.0 ], $updated['items'][0]['changes']['regular_price'] );
 	}
 
 	public function test_offers_merge_by_ean_and_the_cheapest_supplier_sets_the_price(): void {
@@ -106,7 +106,7 @@ final class SyncPipelineTest extends \WP_UnitTestCase {
 		$this->assertSame( 1, $run->stats['updated'] ?? 0 );
 
 		$speaker = wc_get_product( wc_get_product_id_by_sku( 'ECHO-1' ) );
-		$this->assertSame( '120', $speaker->get_regular_price(), 'Beta sells it for 80, plus 50%.' );
+		$this->assertSame( '120.00', $speaker->get_regular_price(), 'Beta sells it for 80, plus 50%.' );
 		$this->assertSame( 10, $speaker->get_stock_quantity(), 'Stock is summed: 4 + 6.' );
 		$this->assertSame( 'Echo speaker', $speaker->get_name(), 'The first supplier keeps the card content.' );
 	}

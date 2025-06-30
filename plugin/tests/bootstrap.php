@@ -40,4 +40,15 @@ tests_add_filter(
 	}
 );
 
+// Action Scheduler creates its tables on first use. If that happens inside a test, the DDL
+// commits the test transaction and later tests see leftovers, so create them up front.
+tests_add_filter(
+	'init',
+	static function (): void {
+		as_enqueue_async_action( 'supplier_sync_tests_warmup' );
+		as_unschedule_all_actions( 'supplier_sync_tests_warmup' );
+	},
+	99
+);
+
 require $wss_tests_dir . '/includes/bootstrap.php';

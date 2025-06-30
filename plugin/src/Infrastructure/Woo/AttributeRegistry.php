@@ -54,8 +54,9 @@ final class AttributeRegistry {
 			]
 		);
 		if ( is_wp_error( $id ) ) {
-			// Another request created it a moment ago, or the slug is taken.
-			$existing = $this->find_by_label( $label );
+			// Another worker created it a moment ago and the attribute cache is stale:
+			// ask the table itself before giving up.
+			$existing = $this->find_by_label( $label ) ?? $this->find_in_table( $slug );
 			if ( null === $existing ) {
 				throw new \RuntimeException( esc_html( $id->get_error_message() ) );
 			}
@@ -128,6 +129,13 @@ final class AttributeRegistry {
 		}
 		$this->terms[ $key ] = (int) $result['term_id'];
 		return $this->terms[ $key ];
+	}
+
+	private function find_in_table( string $slug ): ?string {
+		global $wpdb;
+		// phpcs:ignore WordPress.DB.DirectDatabaseQuery -- bypasses the stale attribute cache on purpose.
+		$name = $wpdb->get_var( $wpdb->prepare( 'SELECT attribute_name FROM %i WHERE attribute_name = %s', $wpdb->prefix . 'woocommerce_attribute_taxonomies', $slug ) );
+		return null !== $name ? wc_attribute_taxonomy_name( (string) $name ) : null;
 	}
 
 	private function find_by_label( string $label ): ?string {

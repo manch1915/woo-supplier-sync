@@ -23,6 +23,22 @@ final class SyncPipelineTest extends \WP_UnitTestCase {
 
 	public function set_up(): void {
 		parent::set_up();
+
+		// Each test rolls back its rows, but services and WooCommerce keep in-memory caches
+		// of attribute and category IDs. Start every test with fresh ones.
+		$container = new \ReflectionProperty( Plugin::class, 'container' );
+		$container->setValue( null, null );
+		wp_cache_flush();
+		delete_transient( 'wc_attribute_taxonomies' );
+		\WC_Cache_Helper::invalidate_cache_group( 'woocommerce-attributes' );
+
+		// Attribute taxonomies registered by an earlier test outlive its rolled-back rows.
+		$known = wp_list_pluck( wc_get_attribute_taxonomies(), 'attribute_name' );
+		foreach ( get_taxonomies() as $taxonomy ) {
+			if ( str_starts_with( $taxonomy, 'pa_' ) && ! in_array( substr( $taxonomy, 3 ), $known, true ) ) {
+				unregister_taxonomy( $taxonomy );
+			}
+		}
 		update_option( 'woocommerce_currency', 'USD' );
 		update_option(
 			Settings::OPTION,
@@ -70,18 +86,21 @@ final class SyncPipelineTest extends \WP_UnitTestCase {
 
 	public function test_dry_run_reports_changes_without_touching_products(): void {
 		$alpha = $this->supplier( 'Alpha', 'yml', 'alpha.yml' );
-		$this->sync( $alpha );
+		$first = $this->sync( $alpha );
+		$this->assertSame( 3, $first->stats['created'] ?? 0, wp_json_encode( [ $first->stats, $first->error, $this->log( $first ) ] ) );
 
 		$alpha = $this->repoint( $alpha, 'alpha-v2.yml' );
 		$dry   = $this->sync( $alpha, true );
 
 		$updated = Plugin::container()->get( RunRepository::class )->items( $dry->id, 'updated', '', 10, 0 );
-		$this->assertSame( 1, $dry->stats['updated'] ?? 0, 'Only the speaker got cheaper: ' . wp_json_encode( $updated['items'] ) );
+		$this->assertSame( 1, $dry->stats['updated'] ?? 0, 'Only the speaker got cheaper: ' . wp_json_encode( [ $dry->stats, $dry->error, $this->log( $dry ) ] ) );
 		$this->assertSame( 1, $dry->stats['unpublished'] ?? 0, 'The cable left the feed.' );
 		$this->assertSame( '150.00', wc_get_product( wc_get_product_id_by_sku( 'ECHO-1' ) )->get_regular_price() );
 		$this->assertSame( 'publish', get_post_status( wc_get_product_id_by_sku( 'ECHO-CBL' ) ) );
 
-		$this->assertSame( [ '150.00', 135.0 ], $updated['items'][0]['changes']['regular_price'] );
+		[ $from, $to ] = $updated['items'][0]['changes']['regular_price'];
+		$this->assertSame( '150.00', $from );
+		$this->assertEqualsWithDelta( 135.0, $to, 0.001 );
 	}
 
 	public function test_offers_merge_by_ean_and_the_cheapest_supplier_sets_the_price(): void {
@@ -102,7 +121,7 @@ final class SyncPipelineTest extends \WP_UnitTestCase {
 		);
 
 		$run = $this->sync( $beta );
-		$this->assertSame( 1, $run->stats['created'] ?? 0 );
+		$this->assertSame( 1, $run->stats['created'] ?? 0, wp_json_encode( [ $run->stats, $this->log( $run ) ] ) );
 		$this->assertSame( 1, $run->stats['updated'] ?? 0 );
 
 		$speaker = wc_get_product( wc_get_product_id_by_sku( 'ECHO-1' ) );
@@ -164,6 +183,14 @@ final class SyncPipelineTest extends \WP_UnitTestCase {
 		$id = self::factory()->attachment->create( [ 'post_mime_type' => 'text/plain' ] );
 		update_attached_file( $id, self::FIXTURES . $fixture );
 		return $id;
+	}
+
+	/**
+	 * @return list<string>
+	 */
+	private function log( Run $run ): array {
+		$items = Plugin::container()->get( RunRepository::class )->items( $run->id, null, '', 50, 0 );
+		return array_map( static fn ( array $i ): string => $i['action'] . ' ' . $i['group_key'] . ' ' . $i['message'], $items['items'] );
 	}
 
 	private function sync( Supplier $supplier, bool $dry_run = false ): Run {

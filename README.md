@@ -1,5 +1,7 @@
 # Supplier Sync for WooCommerce
 
+[![CI](https://github.com/manch1915/woo-supplier-sync/actions/workflows/ci.yml/badge.svg)](https://github.com/manch1915/woo-supplier-sync/actions/workflows/ci.yml)
+
 A WordPress plugin that keeps a WooCommerce catalog in sync with suppliers. It reads YML and XML feeds, CSV and Excel price lists, JSON APIs and plain supplier websites, then creates and updates products, prices, stock, photos, attributes and variations on a schedule.
 
 ![Overview screen with three suppliers, their last runs and the activity chart](docs/screenshots/overview.png)

@@ -21,6 +21,15 @@ final class AdminPage {
 		add_action( 'admin_menu', [ $this, 'menu' ] );
 		add_action( 'admin_enqueue_scripts', [ $this, 'assets' ] );
 		add_filter( 'plugin_action_links_' . plugin_basename( SUPPLIER_SYNC_FILE ), [ $this, 'action_links' ] );
+		add_filter( 'woocommerce_prevent_admin_access', [ $this, 'allow_sync_operators' ] );
+	}
+
+	/**
+	 * WooCommerce sends users without edit_posts to My Account. A role that only runs syncs
+	 * (a warehouse operator, the demo account) still needs this one admin screen.
+	 */
+	public function allow_sync_operators( bool $prevent ): bool {
+		return $prevent && ! current_user_can( Capabilities::VIEW );
 	}
 
 	public function menu(): void {

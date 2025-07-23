@@ -1,0 +1,17 @@
+# Server override: nothing is published on the host. WordPress joins the reverse proxy's
+# network and Caddy reaches it by container name.
+#   docker compose -f compose.yaml -f compose.prod.yaml up -d
+services:
+  wordpress:
+    ports: !reset []
+    networks:
+      - default
+      - proxy
+
+  feeds:
+    ports: !reset []
+
+networks:
+  proxy:
+    external: true
+    name: ${PROXY_NETWORK:-infra_default}

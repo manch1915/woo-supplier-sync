@@ -48,6 +48,8 @@ wp option update woocommerce_onboarding_profile '{"skipped":true}' --format=json
 wp option update woocommerce_task_list_hidden yes || true
 wp option update woocommerce_show_marketplace_suggestions no || true
 wp option update woocommerce_allow_tracking no || true
+# Order attribution adds jQuery and tracking scripts to every page; the demo does not need it.
+wp option update woocommerce_feature_order_attribution_enabled no || true
 
 log "Store categories used by price rules"
 term_id() {

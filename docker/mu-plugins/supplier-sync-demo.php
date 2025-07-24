@@ -80,3 +80,23 @@ add_action(
 		);
 	}
 );
+
+// Front-end tuning of the demo store (theme-level choices, not part of the plugin).
+// The first product photos are the LCP element: load them eagerly and first.
+add_filter(
+	'render_block_woocommerce/product-image',
+	static function ( string $html ): string {
+		static $seen = 0;
+		if ( is_admin() || ++$seen > 2 ) {
+			return $html;
+		}
+		$html = str_replace( ' loading="lazy"', '', $html );
+		return 1 === $seen ? (string) preg_replace( '/<img /', '<img fetchpriority="high" ', $html, 1 ) : $html;
+	}
+);
+
+// The block theme styles the catalog itself; the classic WooCommerce sheets only block rendering.
+add_filter(
+	'woocommerce_enqueue_styles',
+	static fn ( $styles ) => wp_is_block_theme() ? [] : $styles
+);

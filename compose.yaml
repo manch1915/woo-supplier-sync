@@ -56,7 +56,12 @@ services:
     ports:
       - "${WP_PORT:-8080}:80"
     environment: *wp-env
-    volumes: *wp-volumes
+    volumes:
+      - wordpress:/var/www/html
+      - ./plugin:/var/www/html/wp-content/plugins/woo-supplier-sync
+      - ./docker/mu-plugins:/var/www/html/wp-content/mu-plugins:ro
+      - ./demo:/demo:ro
+      - ./docker/apache/static-cache.conf:/etc/apache2/conf-enabled/static-cache.conf:ro
     depends_on:
       db:
         condition: service_healthy

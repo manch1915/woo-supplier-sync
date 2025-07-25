@@ -100,3 +100,21 @@ add_filter(
 	'woocommerce_enqueue_styles',
 	static fn ( $styles ) => wp_is_block_theme() ? [] : $styles
 );
+
+add_action(
+	'wp_head',
+	static function (): void {
+		if ( is_front_page() || is_shop() ) {
+			echo '<meta name="description" content="' . esc_attr__( 'Northwind Supply is a demo store. Supplier Sync for WooCommerce fills and prices its catalog from three supplier feeds.', 'woo-supplier-sync' ) . '">' . "\n";
+		}
+	},
+	1
+);
+
+// "Read more" on sold-out items says nothing about the product state.
+add_filter(
+	'woocommerce_product_add_to_cart_text',
+	static fn ( string $text, $product ) => $product instanceof WC_Product && ! $product->is_in_stock() ? __( 'Out of stock', 'woocommerce' ) : $text,
+	10,
+	2
+);

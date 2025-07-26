@@ -91,7 +91,7 @@ add_filter(
 			return $html;
 		}
 		$html = str_replace( ' loading="lazy"', '', $html );
-		return 1 === $seen ? (string) preg_replace( '/<img /', '<img fetchpriority="high" ', $html, 1 ) : $html;
+		return (string) preg_replace( '/<img /', '<img fetchpriority="high" ', $html, 1 );
 	}
 );
 
@@ -115,6 +115,15 @@ add_action(
 add_filter(
 	'woocommerce_product_add_to_cart_text',
 	static fn ( string $text, $product ) => $product instanceof WC_Product && ! $product->is_in_stock() ? __( 'Out of stock', 'woocommerce' ) : $text,
+	10,
+	2
+);
+add_filter(
+	'woocommerce_product_add_to_cart_description',
+	static fn ( string $label, $product ) => $product instanceof WC_Product && ! $product->is_in_stock()
+		/* translators: %s: product name */
+		? sprintf( __( 'Out of stock: %s', 'woo-supplier-sync' ), $product->get_name() )
+		: $label,
 	10,
 	2
 );

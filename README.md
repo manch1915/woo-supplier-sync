@@ -4,6 +4,8 @@
 
 A WordPress plugin that keeps a WooCommerce catalog in sync with suppliers. It reads YML and XML feeds, CSV and Excel price lists, JSON APIs and plain supplier websites, then creates and updates products, prices, stock, photos, attributes and variations on a schedule.
 
+**Live demo:** [supplier-sync.narcisbin.com](https://supplier-sync.narcisbin.com) is the store, and the plugin is behind [the admin login](https://supplier-sync.narcisbin.com/wp-login.php) with `demo` / `demo`. You can run syncs and dry runs there; the data goes back to its initial state every night.
+
 ![Overview screen with three suppliers, their last runs and the activity chart](docs/screenshots/overview.png)
 
 ## What it does
